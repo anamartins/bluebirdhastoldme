@@ -1,0 +1,30 @@
+.villagers {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  .mini-villager {
+    border: 1px solid #333;
+    border-radius: 2px;
+    margin: 0.5%;
+    padding: 1%;
+    width: 15%;
+    cursor: pointer;
+    color: #333;
+    &:hover {
+      background-color: #ccc;
+    }
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #aaa;
+      margin-right: 10%;
+    }
+  }
+}
