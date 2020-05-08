@@ -15,7 +15,6 @@ class MiniVillagersView extends React.Component {
       this.props.loadFilteredVillagers(this.props.filter, this.props.value);
     } else {
       this.props.loadVillagers();
-      console.log(loadFilteredVillagers);
     }
   }
 
@@ -32,13 +31,11 @@ class MiniVillagersView extends React.Component {
 }
 
 const mapStateToProps = ({ villagers, loading }, ownProps) => {
-  const filter = ownProps.match.params.filter;
-  const value = ownProps.match.params.value;
+  // let filter = ownProps.match.params.filter;
+  // let value = ownProps.match.params.value;
 
   let search = ownProps.location.search;
-  search = search.slice(1);
-
-  search = search.split("&");
+  search = search.slice(1).split("&");
 
   let filters = search.reduce((finalObj, item) => {
     item = item.split("=");
@@ -46,7 +43,8 @@ const mapStateToProps = ({ villagers, loading }, ownProps) => {
     return finalObj;
   }, {});
 
-  console.log("filterrrsss", filters);
+  let filter = Object.keys(filters);
+  let value = Object.values(filters);
 
   return { filter, value, villagers, loading };
 };

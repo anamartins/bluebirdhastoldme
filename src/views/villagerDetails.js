@@ -18,7 +18,7 @@ class VillagersDetails extends React.Component {
       <div className="villager-details">
         <h1>{villager.name}</h1>
         <img src={`/img/icons/villagers/${villager.icon}`} />
-        <p> Species: {villager.species}</p>
+        <p>Species: {villager.species}</p>
         <p>Gender: {villager.gender}</p>
         <p>Personality: {villager.personality}</p>
         <p>Birthday: {villager.birthday} </p>

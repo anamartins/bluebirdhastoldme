@@ -25,25 +25,7 @@ class MiniVillagersList extends React.Component {
   }
 }
 
-const mapStateToProps = ({ villagers, loading }, ownProps) => {
-  const filter = ownProps.match.params.filter;
-  const value = ownProps.match.params.value;
-
-  let search = ownProps.location.search;
-  search = search.slice(1);
-
-  search = search.split("&");
-
-  let filters = search.reduce((finalObj, item) => {
-    item = item.split("=");
-    finalObj[item[0]] = item[1];
-    return finalObj;
-  }, {});
-
-  console.log("filterrrsss", filters);
-
-  return { filter, value, villagers, loading };
-};
+const mapStateToProps = ({ villagers, loading }) => ({ villagers, loading });
 
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,

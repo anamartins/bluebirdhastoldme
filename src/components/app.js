@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/villager/:name">
             <VillagerDetails />
           </Route>
-          <Route exact path="/:filter/:value">
+          <Route exact path="?:filter=:value">
             <MiniVillagersView />
           </Route>
         </Switch>
