@@ -1,24 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MiniVillager from "../components/miniVillager";
+import MiniVillager from "./miniVillager";
 import { withRouter } from "react-router-dom";
-import { loadVillagers, loadFilteredVillagers } from "../actions/actions";
 
 class MiniVillagersList extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    if (this.props.filter !== undefined) {
-      console.log("oooi", this.props.filter);
-      console.log("eooi", this.props.value);
-      this.props.loadFilteredVillagers(this.props.filter, this.props.value);
-    } else {
-      console.log("else");
-      this.props.loadVillagers();
-    }
   }
 
   render() {
@@ -56,21 +44,12 @@ const mapStateToProps = ({ villagers, loading }, ownProps) => {
 
   return { filter, value, villagers, loading };
 };
-const mapDispatchToProps = (dispatch) => ({
-  loadVillagers: () => dispatch(loadVillagers()),
-  loadFilteredVillagers: (filter, value) =>
-    dispatch(loadFilteredVillagers(filter, value)),
-});
 
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
-  loadVillagers: PropTypes.func,
-  loadFilteredVillagers: PropTypes.func,
   loading: PropTypes.bool,
   filter: PropTypes.string,
   value: PropTypes.string,
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(MiniVillagersList)
-);
+export default withRouter(connect(mapStateToProps)(MiniVillagersList));

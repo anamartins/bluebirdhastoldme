@@ -1,5 +1,5 @@
 import React from "react";
-import MiniVillagersList from "../views/miniVillagersList";
+import MiniVillagersView from "../views/miniVillagersView";
 import VillagerDetails from "../views/villagerDetails";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -9,13 +9,13 @@ function App() {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <MiniVillagersList />
+            <MiniVillagersView />
           </Route>
           <Route exact path="/villager/:name">
             <VillagerDetails />
           </Route>
           <Route exact path="/:filter/:value">
-            <MiniVillagersList />
+            <MiniVillagersView />
           </Route>
         </Switch>
       </div>
