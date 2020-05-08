@@ -7,12 +7,32 @@ export const LOAD_VILLAGERS_ERROR = "LOAD_VILLAGERS_ERROR";
 export const LOAD_SINGLE_VILLAGER = "LOAD_SINGLE_VILLAGER";
 export const LOAD_SINGLE_VILLAGER_ERROR = "LOAD_SINGLE_VILLAGER_ERROR";
 export const LOAD_SINGLE_VILLAGER_SUCCESS = "LOAD_SINGLE_VILLAGER_SUCCESS";
+export const LOAD_FILTERED_VILLAGERS = "LOAD_FILTERED_VILLAGERS";
+export const LOAD_FILTERED_VILLAGERS_SUCCESS =
+  "LOAD_FILTERED_VILLAGERS_SUCCESS";
+export const LOAD_FILTERED_VILLAGERS_ERROR = "LOAD_FILTERED_VILLAGERS_ERROR";
+
+export const loadFilteredVillagers = (filter, value) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_FILTERED_VILLAGERS });
+    axios
+      .get(`${URL}villagers?${filter}=${value}`)
+      .then((res) => {
+        const filteredVillagers = res.data;
+        console.log("filtered villagers action", filteredVillagers);
+        dispatch({ type: LOAD_FILTERED_VILLAGERS_SUCCESS, filteredVillagers });
+      })
+      .catch(() => {
+        dispatch({ type: LOAD_FILTERED_VILLAGERS_ERROR });
+      });
+  };
+};
 
 export const loadVillagers = () => {
   return (dispatch) => {
     dispatch({ type: LOAD_VILLAGERS });
     axios
-      .get(URL + "villagers")
+      .get(`${URL}villagers`)
       .then((res) => {
         const villagers = res.data;
         console.log("os villagers", villagers);

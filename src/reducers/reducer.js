@@ -5,6 +5,9 @@ import {
   LOAD_SINGLE_VILLAGER,
   LOAD_SINGLE_VILLAGER_SUCCESS,
   LOAD_SINGLE_VILLAGER_ERROR,
+  LOAD_FILTERED_VILLAGERS,
+  LOAD_FILTERED_VILLAGERS_SUCCESS,
+  LOAD_FILTERED_VILLAGERS_ERROR,
 } from "../actions/actions";
 
 const defaultState = {
@@ -48,6 +51,25 @@ const reducer = (state = defaultState, action) => {
       };
 
     case LOAD_SINGLE_VILLAGER_ERROR:
+      return {
+        ...state,
+        message: "error",
+      };
+
+    case LOAD_FILTERED_VILLAGERS:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case LOAD_FILTERED_VILLAGERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        villagers: action.filteredVillagers,
+      };
+
+    case LOAD_FILTERED_VILLAGERS_ERROR:
       return {
         ...state,
         message: "error",

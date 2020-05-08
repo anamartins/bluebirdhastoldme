@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { loadSingleVillager } from "../actions/actions";
 
 class VillagersDetails extends React.Component {
@@ -16,7 +16,7 @@ class VillagersDetails extends React.Component {
     const { name, villager } = this.props;
     return (
       <div className="villager-details">
-        <h1>{name}</h1>
+        <h1>{villager.name}</h1>
         <img src={`/${villager.icon}`} />
         <p> Species: {villager.species}</p>
         <p>Gender: {villager.gender}</p>

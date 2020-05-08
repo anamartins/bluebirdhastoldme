@@ -6,7 +6,7 @@ function MiniVillager({ name, icon }) {
   return (
     <div className="mini-villager">
       <a href={url}>
-        <img src={icon} />
+        <img src={`/img/icons/villagers/${icon}`} />
         <p>{name}</p>
       </a>
     </div>

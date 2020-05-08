@@ -9,11 +9,13 @@ function App() {
       <div className="app">
         <Switch>
           <Route exact path="/">
-            <h1>Animal Crossing: New Horizons Tweets</h1>
             <MiniVillagersList />
           </Route>
           <Route exact path="/villager/:name">
             <VillagerDetails />
+          </Route>
+          <Route exact path="/:filter/:value">
+            <MiniVillagersList />
           </Route>
         </Switch>
       </div>
