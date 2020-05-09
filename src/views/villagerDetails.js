@@ -18,10 +18,26 @@ class VillagersDetails extends React.Component {
       <div className="villager-details">
         <h1>{villager.name}</h1>
         <img src={`/img/icons/villagers/${villager.icon}`} />
-        <p>Species: {villager.species}</p>
-        <p>Gender: {villager.gender}</p>
-        <p>Personality: {villager.personality}</p>
-        <p>Birthday: {villager.birthday} </p>
+        <p>
+          Species:
+          <a href={`../?species=${villager.species}`}>{villager.species}</a>
+        </p>
+        <p>
+          Gender:
+          <a href={`../?gender=${villager.gender}`}>{villager.gender}</a>
+        </p>
+        <p>
+          Personality:
+          <a href={`../?personality=${villager.personality}`}>
+            {villager.personality}
+          </a>
+        </p>
+        <p>
+          Birthday:
+          <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
+            {villager.birthday}
+          </a>
+        </p>
       </div>
     );
   }
