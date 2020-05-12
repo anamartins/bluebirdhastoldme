@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { loadSingleVillager } from "../actions/actions";
+import TweetsList from "../components/tweetsList";
 
 class VillagersDetails extends React.Component {
   constructor(props) {
@@ -15,35 +16,38 @@ class VillagersDetails extends React.Component {
   render() {
     const { name, villager } = this.props;
     return (
-      <div className="villager-details">
-        <h1>{villager.name}</h1>
-        <img src={`/img/icons/villagers/${villager.icon}`} />
-        <img src={`/img/photos/villagers/${villager.photo}`} />
-        <p>
-          Species: {` `}
-          <a href={`../?species=${villager.species}`}> {villager.species}</a>
-        </p>
-        <p>
-          Gender: {` `}
-          <a href={`../?gender=${villager.gender}`}>{villager.gender}</a>
-        </p>
-        <p>
-          Personality: {` `}
-          <a href={`../?personality=${villager.personality}`}>
-            {villager.personality}
-          </a>
-        </p>
-        <p>
-          Birthday:
-          {` `}
-          <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
-            {villager.birthday}
-          </a>
-        </p>
-        <p>
-          Sun Sign: {` `}
-          <a href={`../?sunSign=${villager.sunSign}`}>{villager.sunSign}</a>
-        </p>
+      <div className="villager">
+        <div className="villager-details">
+          <h1>{villager.name}</h1>
+          <img src={`/img/icons/villagers/${villager.icon}`} />
+          <img src={`/img/photos/villagers/${villager.photo}`} />
+          <p>
+            Species: {` `}
+            <a href={`../?species=${villager.species}`}> {villager.species}</a>
+          </p>
+          <p>
+            Gender: {` `}
+            <a href={`../?gender=${villager.gender}`}>{villager.gender}</a>
+          </p>
+          <p>
+            Personality: {` `}
+            <a href={`../?personality=${villager.personality}`}>
+              {villager.personality}
+            </a>
+          </p>
+          <p>
+            Birthday:
+            {` `}
+            <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
+              {villager.birthday}
+            </a>
+          </p>
+          <p>
+            Sun Sign: {` `}
+            <a href={`../?sunSign=${villager.sunSign}`}>{villager.sunSign}</a>
+          </p>
+        </div>
+        <TweetsList />
       </div>
     );
   }

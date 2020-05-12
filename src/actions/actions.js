@@ -1,5 +1,6 @@
 import axios from "axios";
 const URL = "http://localhost:3000/";
+const HASHTAGS = "#AnimalCrossing #ACNH #NintendoSwitch";
 
 export const LOAD_VILLAGERS = "LOAD_VILLAGERS";
 export const LOAD_VILLAGERS_SUCCESS = "LOAD_VILLAGERS_SUCCESS";
@@ -11,6 +12,25 @@ export const LOAD_FILTERED_VILLAGERS = "LOAD_FILTERED_VILLAGERS";
 export const LOAD_FILTERED_VILLAGERS_SUCCESS =
   "LOAD_FILTERED_VILLAGERS_SUCCESS";
 export const LOAD_FILTERED_VILLAGERS_ERROR = "LOAD_FILTERED_VILLAGERS_ERROR";
+export const LOAD_TWEETS = "LOAD_TWEETS";
+export const LOAD_TWEETS_SUCCESS = "LOAD_TWEETS_SUCCESS";
+export const LOAD_TWEETS_ERROR = "LOAD_TWEETS_ERROR";
+
+export const loadTweets = (name) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_TWEETS });
+    axios
+      .get(`${URL}tweets/${name}`)
+      .then((res) => {
+        const tweets = res.data.tweets;
+        console.log("tweets", tweets);
+        dispatch({ type: LOAD_TWEETS_SUCCESS, tweets });
+      })
+      .catch(() => {
+        dispatch({ type: LOAD_TWEETS_ERROR });
+      });
+  };
+};
 
 export const loadFilteredVillagers = (filter, value) => {
   return (dispatch) => {

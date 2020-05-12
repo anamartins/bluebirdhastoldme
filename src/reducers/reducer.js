@@ -8,6 +8,9 @@ import {
   LOAD_FILTERED_VILLAGERS,
   LOAD_FILTERED_VILLAGERS_SUCCESS,
   LOAD_FILTERED_VILLAGERS_ERROR,
+  LOAD_TWEETS,
+  LOAD_TWEETS_SUCCESS,
+  LOAD_TWEETS_ERROR,
 } from "../actions/actions";
 
 const defaultState = {
@@ -15,6 +18,7 @@ const defaultState = {
   message: null,
   villagers: [],
   singleVillager: {},
+  tweets: [],
 };
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -75,6 +79,24 @@ const reducer = (state = defaultState, action) => {
         message: "error",
       };
 
+    case LOAD_TWEETS:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case LOAD_TWEETS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        tweets: action.tweets,
+      };
+
+    case LOAD_TWEETS_ERROR:
+      return {
+        ...state,
+        message: "error",
+      };
     default:
       return state;
   }
