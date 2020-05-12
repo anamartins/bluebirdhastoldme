@@ -8,6 +8,8 @@ import { loadVillagers, loadFilteredVillagers } from "../actions/actions";
 class MiniVillagersView extends React.Component {
   constructor(props) {
     super(props);
+
+    this.getH2 = this.getH2.bind(this);
   }
 
   componentDidMount() {
@@ -18,12 +20,54 @@ class MiniVillagersView extends React.Component {
     }
   }
 
+  getH2(filter, value) {
+    console.log("filter", filter[0]);
+    console.log("value", value[0]);
+
+    if (value[0]) {
+      if (filter[0] === "birthdayMonth") {
+        switch (value[0]) {
+          case "1":
+            return <h2>Birthdays of January</h2>;
+          case "2":
+            return <h2>Birthdays of February</h2>;
+          case "3":
+            return <h2>Birthdays of March</h2>;
+          case "4":
+            return <h2>Birthdays of Abril</h2>;
+          case "5":
+            return <h2>Birthdays of May</h2>;
+          case "6":
+            return <h2>Birthdays of June</h2>;
+          case "7":
+            return <h2>Birthdays of July</h2>;
+          case "8":
+            return <h2>Birthdays of August</h2>;
+          case "9":
+            return <h2>Birthdays of September</h2>;
+          case "10":
+            return <h2>Birthdays of October</h2>;
+          case "11":
+            return <h2>Birthdays of November</h2>;
+          case "12":
+            return <h2>Birthdays of December</h2>;
+        }
+      } else {
+        return <h2>{value} characters</h2>;
+      }
+    } else {
+      return null;
+    }
+  }
+
   render() {
     const { filter, value } = this.props;
     return (
       <div className="list">
-        <h1>Animal Crossing New Horizons Tweets</h1>
-        {filter ? <h2>{value} characters</h2> : ""}
+        <h1>
+          <a href="/">Animal Crossing New Horizons Tweets</a>
+        </h1>
+        {this.getH2(filter, value)}
         <MiniVillagersList />
       </div>
     );
@@ -31,9 +75,6 @@ class MiniVillagersView extends React.Component {
 }
 
 const mapStateToProps = ({ villagers, loading }, ownProps) => {
-  // let filter = ownProps.match.params.filter;
-  // let value = ownProps.match.params.value;
-
   let search = ownProps.location.search;
   search = search.slice(1).split("&");
 
