@@ -19,14 +19,11 @@ class TweetsList extends React.Component {
     const { tweets, loading } = this.props;
     return (
       <div className="tweets">
-        {tweets.map((tweet, index) => (
-          <Tweet key={index} {...tweet} />
-        ))}
-        {/* {loading ? (
-          <div className="loading">LOADING</div>
+        {loading ? (
+          <div className="loading">LOADING {console.log("LOADING")}</div>
         ) : (
           tweets.map((tweet, index) => <Tweet key={index} {...tweet} />)
-        )} */}
+        )}
       </div>
     );
   }

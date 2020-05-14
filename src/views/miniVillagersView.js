@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import MiniVillagersList from "../components/miniVillagersList";
 import { withRouter } from "react-router-dom";
 import { loadVillagers, loadFilteredVillagers } from "../actions/actions";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 class MiniVillagersView extends React.Component {
   constructor(props) {
@@ -63,12 +65,11 @@ class MiniVillagersView extends React.Component {
   render() {
     const { filter, value } = this.props;
     return (
-      <div className="list">
-        <h1>
-          <a href="/">Animal Crossing New Horizons Tweets</a>
-        </h1>
+      <div className="wrapper">
+        <Header />
         {this.getH2(filter, value)}
         <MiniVillagersList />
+        <Footer />
       </div>
     );
   }

@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { loadSingleVillager } from "../actions/actions";
 import TweetsList from "../components/tweetsList";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import "./style.scss";
 
 class VillagersDetails extends React.Component {
   constructor(props) {
@@ -16,38 +19,51 @@ class VillagersDetails extends React.Component {
   render() {
     const { name, villager } = this.props;
     return (
-      <div className="villager">
-        <div className="villager-details">
-          <h1>{villager.name}</h1>
-          <img src={`/img/icons/villagers/${villager.icon}`} />
-          <img src={`/img/photos/villagers/${villager.photo}`} />
-          <p>
-            Species: {` `}
-            <a href={`../?species=${villager.species}`}> {villager.species}</a>
-          </p>
-          <p>
-            Gender: {` `}
-            <a href={`../?gender=${villager.gender}`}>{villager.gender}</a>
-          </p>
-          <p>
-            Personality: {` `}
-            <a href={`../?personality=${villager.personality}`}>
-              {villager.personality}
-            </a>
-          </p>
-          <p>
-            Birthday:
-            {` `}
-            <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
-              {villager.birthday}
-            </a>
-          </p>
-          <p>
-            Sun Sign: {` `}
-            <a href={`../?sunSign=${villager.sunSign}`}>{villager.sunSign}</a>
-          </p>
+      <div className="wrapper">
+        <Header />
+        <div className="villager-content">
+          <div className="villager-details">
+            <div className="villager-photo">
+              <img src={`/img/photos/villagers/${villager.photo}`} />
+            </div>
+            <div className="data">
+              <h1>{villager.name}</h1>
+              <p>
+                <img src="../img/site/smile.png" />
+                <a href={`../?species=${villager.species}`}>
+                  {" "}
+                  {villager.species}
+                </a>
+                , {"  "}
+                <a href={`../?gender=${villager.gender}`}> {villager.gender}</a>
+              </p>
+
+              <p>
+                <img src="../img/site/heart.png" />
+                {/* {villager.gender === "Female" ? "She has a  " : "He has a  "} */}
+                <a href={`../?personality=${villager.personality}`}>
+                  {villager.personality}
+                </a>
+              </p>
+              <p>
+                <img src="../img/site/birthday.png" />
+
+                <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
+                  {villager.birthday}
+                </a>
+              </p>
+              <p>
+                <img src="../img/site/sun.png" />
+
+                <a href={`../?sunSign=${villager.sunSign}`}>
+                  {villager.sunSign}
+                </a>
+              </p>
+            </div>
+          </div>
+          <TweetsList />
         </div>
-        <TweetsList />
+        <Footer />
       </div>
     );
   }

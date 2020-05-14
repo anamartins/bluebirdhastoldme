@@ -1,0 +1,91 @@
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .name {
+    display: flex;
+    img {
+      width: 8%;
+    }
+    h1 {
+      font-size: 250%;
+      font-family: "Ultra", serif;
+      color: #333;
+      a,
+      a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .villager-content {
+    display: flex;
+    width: 95%;
+
+    .villager-details {
+      width: 40%;
+      display: flex;
+      margin: 1%;
+
+      .villager-photo {
+        width: 100%;
+        margin: 2%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .data {
+        margin: 0 0 0 4%;
+        width: 50%;
+
+        h1 {
+          margin-top: 0;
+        }
+        p {
+          display: flex;
+          align-items: center;
+          img {
+            width: 20px;
+            margin: 1%;
+          }
+        }
+      }
+    }
+    .tweets {
+      width: 60%;
+    }
+  }
+}
+
+.footer {
+  background-color: #47ccde;
+  color: #fff;
+  padding: 3%;
+  text-align: end;
+  width: 94%;
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 1%;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
