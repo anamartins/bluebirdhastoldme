@@ -89,7 +89,9 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         loading: false,
-        tweets: action.tweets,
+        tweets: action.tweets.filter((tweet, index) => {
+          return tweet.extended_entities;
+        }),
       };
 
     case LOAD_TWEETS_ERROR:

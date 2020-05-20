@@ -1,61 +1,44 @@
 import React from "react";
+import Gallery from "../components/gallery";
 import "./style.scss";
 
-function Tweet({
-  created_at,
-  text,
-  user,
-  id_str,
-  entities,
-  urls,
-  extended_entities,
-}) {
+function Tweet({ created_at, text, user, id_str, extended_entities }) {
   return (
     <div className="tweet">
-      <div className="user-photo">
-        <img src={user.profile_image_url} />
-      </div>
-      <div className="tweet-data">
-        <div className="user-name">
-          <span>{user.name}</span>
-          <span> @{user.screen_name}</span>
+      <div className="tweet-up">
+        <div className="user-photo">
+          <img src={user.profile_image_url} />
         </div>
-        <p>{text}</p>
+        <div className="tweet-data">
+          <div className="user-name">
+            <span>{user.name}</span>
 
-        {extended_entities &&
-          extended_entities.media.map((item, index) => (
-            <div className="media" key={item.id}>
-              {item.type === "video" ? (
-                <video controls>
-                  <source
-                    src={
-                      item.video_info.variants.find(
-                        (element) => element.content_type === "video/mp4"
-                      ).url
-                    }
-                  />
-                </video>
-              ) : (
-                <img src={item.media_url} />
-              )}
-            </div>
-          ))}
-        <p className="tweet-time">
-          {created_at.substr(8, 2)} {created_at.substr(4, 3)}{" "}
-          {created_at.substr(-4)} {created_at.substr(11, 5)}
-        </p>
-        <p>"id_str", {id_str}</p>
-        <p>
-          https://twitter.com/{user.screen_name}/status/{id_str}
-        </p>
-        <p>
-          <a
-            href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
-            target="_blank"
-          >
-            See on Twitter
-          </a>
-        </p>
+            <span>
+              {" "}
+              ● @
+              <a href={`https://twitter.com/${user.screen_name}`}>
+                {user.screen_name}
+              </a>
+            </span>
+          </div>
+          <p>{text}</p>
+
+          <Gallery media={extended_entities.media} />
+
+          <p className="tweet-time">
+            {created_at.substr(8, 2)} {created_at.substr(4, 3)}{" "}
+            {created_at.substr(-4)} {created_at.substr(11, 5)}
+          </p>
+        </div>
+      </div>
+      <div className="see-on-twitter">
+        <a
+          href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
+          target="_blank"
+        >
+          <img src="../img/site/Twitter_Logo_Blue.png" />{" "}
+          <span>See on Twitter</span>
+        </a>
       </div>
     </div>
   );

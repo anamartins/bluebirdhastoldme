@@ -17,10 +17,11 @@ class TweetsList extends React.Component {
 
   render() {
     const { tweets, loading } = this.props;
+
     return (
       <div className="tweets">
         {loading ? (
-          <div className="loading">LOADING {console.log("LOADING")}</div>
+          <div className="loading">LOADING</div>
         ) : (
           tweets.map((tweet, index) => <Tweet key={index} {...tweet} />)
         )}
@@ -34,6 +35,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     name,
     tweets: state.tweets,
+    loading: state.loading,
   };
 };
 
@@ -44,7 +46,6 @@ const mapDispatchToProps = (dispatch) => ({
 TweetsList.propTypes = {
   loadTweets: PropTypes.func,
   loading: PropTypes.bool,
-  // tweets: PropTypes.array,
 };
 
 export default withRouter(
