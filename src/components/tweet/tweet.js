@@ -1,5 +1,5 @@
 import React from "react";
-import Gallery from "../components/gallery";
+import Gallery from "../gallery/gallery";
 import "./style.scss";
 
 function Tweet({ created_at, text, user, id_str, extended_entities }) {
@@ -29,16 +29,17 @@ function Tweet({ created_at, text, user, id_str, extended_entities }) {
             {created_at.substr(8, 2)} {created_at.substr(4, 3)}{" "}
             {created_at.substr(-4)} {created_at.substr(11, 5)}
           </p>
+
+          <div className="see-on-twitter">
+            <a
+              href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
+              target="_blank"
+            >
+              <img src="../img/site/Twitter_Logo_Blue.png" />{" "}
+              <span>See on Twitter</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div className="see-on-twitter">
-        <a
-          href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
-          target="_blank"
-        >
-          <img src="../img/site/Twitter_Logo_Blue.png" />{" "}
-          <span>See on Twitter</span>
-        </a>
       </div>
     </div>
   );

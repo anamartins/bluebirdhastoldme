@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
-import App from "./components/app";
+import App from "./components/app/app";
 import thunk from "redux-thunk";
 
 import reducer, { defaultState } from "./reducers/reducer";
@@ -23,5 +23,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-// ReactDOM.render(<App />, document.getElementById("root"));

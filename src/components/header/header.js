@@ -1,9 +1,15 @@
 import React from "react";
 import "./style.scss";
 
-function Footer() {
+function Header() {
   return (
-    <div className="footer">
+    <div className="header">
+      <div className="name">
+        <img src="../img/site/leaf.png" />
+        <h1>
+          <a href="/">Blue Bird Has Told Me</a>
+        </h1>
+      </div>
       <div className="name">
         <a href="/">about</a>
 
@@ -15,4 +21,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Header;

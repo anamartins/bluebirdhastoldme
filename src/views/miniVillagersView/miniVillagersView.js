@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MiniVillagersList from "../components/miniVillagersList";
+import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import { withRouter } from "react-router-dom";
-import { loadVillagers, loadFilteredVillagers } from "../actions/actions";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
+import Header from "../../components/header/header";
 
 class MiniVillagersView extends React.Component {
   constructor(props) {
@@ -23,9 +22,6 @@ class MiniVillagersView extends React.Component {
   }
 
   getH2(filter, value) {
-    console.log("filter", filter[0]);
-    console.log("value", value[0]);
-
     if (value[0]) {
       if (filter[0] === "birthdayMonth") {
         switch (value[0]) {
@@ -69,7 +65,6 @@ class MiniVillagersView extends React.Component {
         <Header />
         {this.getH2(filter, value)}
         <MiniVillagersList />
-        <Footer />
       </div>
     );
   }
@@ -99,9 +94,10 @@ const mapDispatchToProps = (dispatch) => ({
 MiniVillagersList.propTypes = {
   loadVillagers: PropTypes.func,
   loadFilteredVillagers: PropTypes.func,
-  loading: PropTypes.bool,
   filter: PropTypes.string,
   value: PropTypes.string,
+  villagers: PropTypes.array,
+  loading: PropTypes.bool,
 };
 
 export default withRouter(

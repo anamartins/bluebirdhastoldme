@@ -1,0 +1,26 @@
+.mini-villager {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0.5%;
+  padding: 1%;
+  width: 13%;
+  cursor: pointer;
+  color: #333;
+  &:hover {
+    background-color: #66d2bb;
+    border: 1px solid #66d2bb;
+  }
+  a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #333;
+  }
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #aaa;
+    margin-right: 10%;
+  }
+}

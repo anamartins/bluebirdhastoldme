@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadTweets } from "../actions/actions";
-import Tweet from "../components/tweet";
+import { loadTweets } from "../../actions/actions";
+import Tweet from "../tweet/tweet";
 
 class TweetsList extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadSingleVillager } from "../actions/actions";
+import { loadSingleVillager } from "../../actions/actions";
 import "./style.scss";
 
 class VillagerData extends React.Component {

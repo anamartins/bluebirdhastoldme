@@ -1,0 +1,46 @@
+.tweet {
+  border: 2px solid #66d2bb;
+  background-color: #fefefe;
+  border-radius: 5px;
+  margin: 0 0 2% 2%;
+  color: #333;
+
+  .tweet-up {
+    display: flex;
+    padding: 2%;
+  }
+
+  .user-photo {
+    margin: 0 2% 0 0;
+    img {
+      border-radius: 50%;
+    }
+  }
+  .tweet-data {
+    .user-name {
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .tweet-time {
+      font-weight: bold;
+    }
+  }
+  .see-on-twitter {
+    display: flex;
+    border-top: 1px solid #66d2bb;
+    a {
+      display: flex;
+      align-items: center;
+      &:hover {
+        text-decoration: underline;
+        color: #333;
+      }
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+}

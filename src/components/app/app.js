@@ -1,6 +1,6 @@
 import React from "react";
-import MiniVillagersView from "../views/miniVillagersView";
-import VillagerDetails from "../views/villagerDetails";
+import MiniVillagersView from "../../views/miniVillagersView/miniVillagersView";
+import VillagerDetails from "../../views/villagerDetails/villagerDetails";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
