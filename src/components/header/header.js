@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.scss";
+import logo from "./img/leaf.png";
 
 function Header() {
   return (
     <div className="header">
       <div className="name">
-        <img src="../img/site/leaf.png" />
+        <img src={logo} />
         <h1>
           <a href="/">Blue Bird Has Told Me</a>
         </h1>

@@ -1,6 +1,7 @@
 import React from "react";
 import Gallery from "../gallery/gallery";
 import "./style.scss";
+import twitterLogo from "./img/Twitter_Logo_Blue.png";
 
 function Tweet({ created_at, text, user, id_str, extended_entities }) {
   return (
@@ -35,8 +36,7 @@ function Tweet({ created_at, text, user, id_str, extended_entities }) {
               href={`https://twitter.com/${user.screen_name}/status/${id_str}`}
               target="_blank"
             >
-              <img src="../img/site/Twitter_Logo_Blue.png" />{" "}
-              <span>See on Twitter</span>
+              <img src={twitterLogo} /> <span>See on Twitter</span>
             </a>
           </div>
         </div>

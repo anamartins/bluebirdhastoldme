@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { loadSingleVillager } from "../../actions/actions";
 import "./style.scss";
+import cake from "./img/birthday.png";
+import heart from "./img/heart.png";
+import smile from "./img/smile.png";
+import sun from "./img/sun.png";
 
 class VillagerData extends React.Component {
   constructor(props) {
@@ -24,7 +28,7 @@ class VillagerData extends React.Component {
         <div className="data">
           <h1>{villager.name}</h1>
           <p>
-            <img src="../img/site/smile.png" />
+            <img src={smile} />
             <a href={`../?species=${villager.species}`}>
               {" "}
               {villager.species}
@@ -39,20 +43,20 @@ class VillagerData extends React.Component {
           </p>
 
           <p>
-            <img src="../img/site/heart.png" />
+            <img src={heart} />
             <a href={`../?personality=${villager.personality}`}>
               {villager.personality}
             </a>
           </p>
           <p>
-            <img src="../img/site/birthday.png" />
+            <img src={cake} />
 
             <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
               {villager.birthday}
             </a>
           </p>
           <p>
-            <img src="../img/site/sun.png" />
+            <img src={sun} />
 
             <a href={`../?sunSign=${villager.sunSign}`}>{villager.sunSign}</a>
           </p>
