@@ -11,14 +11,19 @@ import {
   LOAD_TWEETS,
   LOAD_TWEETS_SUCCESS,
   LOAD_TWEETS_ERROR,
+  LOAD_MORE_TWEETS,
+  LOAD_MORE_TWEETS_SUCCESS,
+  LOAD_MORE_TWEETS_ERROR,
 } from "../actions/actions";
 
 const defaultState = {
   loading: false,
+  loadingMore: false,
   message: null,
   villagers: [],
   singleVillager: {},
   tweets: [],
+  moreTweetsURL: null,
 };
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -92,9 +97,35 @@ const reducer = (state = defaultState, action) => {
         tweets: action.tweets.filter((tweet, index) => {
           return tweet.extended_entities;
         }),
+        moreTweetsURL: action.moreTweetsURL,
       };
 
     case LOAD_TWEETS_ERROR:
+      return {
+        ...state,
+        message: "error",
+      };
+
+    case LOAD_MORE_TWEETS:
+      return {
+        ...state,
+        loadingMore: true,
+      };
+
+    case LOAD_MORE_TWEETS_SUCCESS:
+      return {
+        ...state,
+        loadingMore: false,
+        tweets: [
+          ...state.tweets,
+          ...action.tweets.filter((tweet, index) => {
+            return tweet.extended_entities;
+          }),
+        ],
+        moreTweetsURL: action.moreTweetsURL,
+      };
+
+    case LOAD_MORE_TWEETS_ERROR:
       return {
         ...state,
         message: "error",

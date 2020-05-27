@@ -15,6 +15,9 @@ export const LOAD_FILTERED_VILLAGERS_ERROR = "LOAD_FILTERED_VILLAGERS_ERROR";
 export const LOAD_TWEETS = "LOAD_TWEETS";
 export const LOAD_TWEETS_SUCCESS = "LOAD_TWEETS_SUCCESS";
 export const LOAD_TWEETS_ERROR = "LOAD_TWEETS_ERROR";
+export const LOAD_MORE_TWEETS = "LOAD_MORE_TWEETS";
+export const LOAD_MORE_TWEETS_SUCCESS = "LOAD_MORE_TWEETS_SUCCESS";
+export const LOAD_MORE_TWEETS_ERROR = "LOAD_MORE_TWEETS_ERROR";
 
 export const loadTweets = (name) => {
   return (dispatch) => {
@@ -23,11 +26,29 @@ export const loadTweets = (name) => {
       .get(`${URL}tweets/${name}`)
       .then((res) => {
         const tweets = res.data.tweets;
-        console.log("tweets", tweets);
-        dispatch({ type: LOAD_TWEETS_SUCCESS, tweets });
+        const moreTweetsURL = res.data.next_results;
+        dispatch({ type: LOAD_TWEETS_SUCCESS, tweets, moreTweetsURL });
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log("erro loop 1", error);
         dispatch({ type: LOAD_TWEETS_ERROR });
+      });
+  };
+};
+
+export const loadMoreTweets = (name, url) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_MORE_TWEETS });
+    axios
+      .get(`${URL}tweets/${name}${url}`)
+      .then((res) => {
+        const tweets = res.data.tweets;
+        const moreTweetsURL = res.data.next_results;
+        dispatch({ type: LOAD_MORE_TWEETS_SUCCESS, tweets, moreTweetsURL });
+      })
+      .catch((error) => {
+        console.log("error", error);
+        dispatch({ type: LOAD_MORE_TWEETS_ERROR });
       });
   };
 };
