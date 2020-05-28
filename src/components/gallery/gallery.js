@@ -40,7 +40,7 @@ class Gallery extends React.Component {
           {this.props.media.map((item, index) => (
             <div
               className={index !== this.state.index ? "media hid" : "media"}
-              key={item.id}
+              key={item.id_str}
             >
               {item.type === "video" ? (
                 <video controls>

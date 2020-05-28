@@ -8,7 +8,8 @@ import Tweet from "../tweet/tweet";
 class TweetsList extends React.Component {
   constructor(props) {
     super(props);
-    this.onButtonClick = this.onButtonClick.bind(this);
+    this.initObserver = this.initObserver.bind(this);
+    this.onTargetReach = this.onTargetReach.bind(this);
   }
 
   componentDidMount() {
@@ -16,13 +17,34 @@ class TweetsList extends React.Component {
     this.props.loadTweets(this.props.name);
   }
 
-  onButtonClick() {
-    console.log("hey hey hey");
-    this.props.loadMoreTweets(this.props.name, this.props.moreTweetsURL);
+  componentDidUpdate(prevProps) {
+    if (prevProps.moreTweetsURL === null && this.props.moreTweetsURL) {
+      this.initObserver();
+    }
+  }
+
+  initObserver() {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1,
+    };
+    let observer = new IntersectionObserver(this.onTargetReach, options);
+
+    let target = document.querySelector("#target");
+    observer.observe(target);
+  }
+
+  onTargetReach(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        this.props.loadMoreTweets(this.props.name, this.props.moreTweetsURL);
+      }
+    });
   }
 
   render() {
-    const { tweets, loading, loadingMore } = this.props;
+    const { tweets, loading, loadingMore, moreTweetsURL } = this.props;
 
     return (
       <div className="tweets">
@@ -32,15 +54,11 @@ class TweetsList extends React.Component {
           tweets.map((tweet, index) => <Tweet key={index} {...tweet} />)
         )}
 
-        <div className="button-more">
-          {loadingMore ? (
-            <div className="loading">LOADING</div>
-          ) : (
-            <button type="button" onClick={this.onButtonClick}>
-              SEE MORE
-            </button>
-          )}
-        </div>
+        {moreTweetsURL && (
+          <div className="load-tweets" id="target">
+            {loadingMore ? <div className="loading">LOADING</div> : null}
+          </div>
+        )}
       </div>
     );
   }
