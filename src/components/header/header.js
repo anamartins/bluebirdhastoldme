@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import logo from "./img/leaf.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,7 +9,7 @@ function Header() {
       <div className="name">
         <img src={logo} />
         <h1>
-          <a href="/">Blue Bird Has Told Me</a>
+          <Link to="/">Blue Bird Has Told Me</Link>
         </h1>
       </div>
       <div className="name">

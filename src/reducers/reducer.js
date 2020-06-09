@@ -50,6 +50,7 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         loading: true,
+        singleVillager: {},
       };
 
     case LOAD_SINGLE_VILLAGER_SUCCESS:

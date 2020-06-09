@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { loadSingleVillager } from "../../actions/actions";
 import "./style.scss";
 import cake from "./img/birthday.png";
@@ -29,36 +29,37 @@ class VillagerData extends React.Component {
           <h1>{villager.name}</h1>
           <p>
             <img src={smile} />
-            <a href={`../?species=${villager.species}`}>
+            <Link to={`/?species=${villager.species}`}>
               {" "}
               {villager.species}
-            </a>, {"  "}
-            <a
+            </Link>
+            , {"  "}
+            <Link
               className="villager-gender"
-              href={`../?gender=${villager.gender}`}
+              to={`/?gender=${villager.gender}`}
             >
               {" "}
               {villager.gender}
-            </a>
+            </Link>
           </p>
 
           <p>
             <img src={heart} />
-            <a href={`../?personality=${villager.personality}`}>
+            <Link to={`/?personality=${villager.personality}`}>
               {villager.personality}
-            </a>
+            </Link>
           </p>
           <p>
             <img src={cake} />
 
-            <a href={`../?birthdayMonth=${villager.birthdayMonth}`}>
+            <Link to={`/?birthdayMonth=${villager.birthdayMonth}`}>
               {villager.birthday}
-            </a>
+            </Link>
           </p>
           <p>
             <img src={sun} />
 
-            <a href={`../?sunSign=${villager.sunSign}`}>{villager.sunSign}</a>
+            <Link to={`/?sunSign=${villager.sunSign}`}>{villager.sunSign}</Link>
           </p>
         </div>
       </div>
