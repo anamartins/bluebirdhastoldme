@@ -16,7 +16,7 @@ import {
   LOAD_MORE_TWEETS_ERROR,
 } from "../actions/actions";
 
-const defaultState = {
+export const defaultState = {
   loading: false,
   loadingMore: false,
   message: null,

@@ -53,7 +53,7 @@ class Gallery extends React.Component {
                   />
                 </video>
               ) : (
-                <img src={item.media_url} />
+                <img src={item.media_url_https} />
               )}
             </div>
           ))}
