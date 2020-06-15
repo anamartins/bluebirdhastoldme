@@ -2,6 +2,7 @@ import React from "react";
 import MiniVillagersView from "../../views/miniVillagersView/miniVillagersView";
 import VillagerDetails from "../../views/villagerDetails/villagerDetails";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./style.scss";
 
 function App() {
   return (

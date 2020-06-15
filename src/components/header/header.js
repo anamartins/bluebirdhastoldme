@@ -12,13 +12,7 @@ function Header() {
           <Link to="/">Blue Bird Has Told Me</Link>
         </h1>
       </div>
-      <div className="name">
-        <a href="/">about</a>
-
-        <a href="https://github.com/anamartins" target="_blank">
-          @anamartins
-        </a>
-      </div>
+      <div className="name"></div>
     </div>
   );
 }

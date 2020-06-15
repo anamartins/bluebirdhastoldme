@@ -29,7 +29,6 @@ export const loadTweets = (name) => {
         dispatch({ type: LOAD_TWEETS_SUCCESS, tweets, moreTweetsURL });
       })
       .catch((error) => {
-        console.log("erro loop 1", error);
         dispatch({ type: LOAD_TWEETS_ERROR });
       });
   };
@@ -46,7 +45,6 @@ export const loadMoreTweets = (name, url) => {
         dispatch({ type: LOAD_MORE_TWEETS_SUCCESS, tweets, moreTweetsURL });
       })
       .catch((error) => {
-        console.log("error", error);
         dispatch({ type: LOAD_MORE_TWEETS_ERROR });
       });
   };
@@ -59,7 +57,6 @@ export const loadFilteredVillagers = (filter, value) => {
       .get(`${API_BASE_URL}villagers?${filter}=${value}`)
       .then((res) => {
         const filteredVillagers = res.data;
-        console.log("filtered villagers action", filteredVillagers);
         dispatch({ type: LOAD_FILTERED_VILLAGERS_SUCCESS, filteredVillagers });
       })
       .catch(() => {
@@ -75,7 +72,6 @@ export const loadVillagers = () => {
       .get(`${API_BASE_URL}villagers`)
       .then((res) => {
         const villagers = res.data;
-        console.log("os villagers", villagers);
         dispatch({ type: LOAD_VILLAGERS_SUCCESS, villagers });
       })
       .catch(() => {
@@ -91,9 +87,7 @@ export const loadSingleVillager = (name) => {
       .get(API_BASE_URL + "villagers/" + name)
       .then((res) => {
         const villager = res.data;
-        console.log("single villager", villager);
         dispatch({ type: LOAD_SINGLE_VILLAGER_SUCCESS, villager });
-        console.log("res", res);
       })
       .catch(() => {
         dispatch({ type: LOAD_SINGLE_VILLAGER_ERROR });

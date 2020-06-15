@@ -13,7 +13,6 @@ class TweetsList extends React.Component {
   }
 
   componentDidMount() {
-    console.log("name", this.props.name);
     this.props.loadTweets(this.props.name);
   }
 
