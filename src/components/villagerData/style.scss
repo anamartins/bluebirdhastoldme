@@ -3,7 +3,7 @@
   top: 100px;
   margin: 1%;
   position: relative;
-  width: 80%;
+  width: 100%;
   background-color: royalblue;
 
   .villager-photo {
@@ -45,6 +45,12 @@
     background-color: plum;
     border-radius: 5%;
     flex-direction: column-reverse;
+    .villager-photo {
+      margin: 4%;
+    }
+    .data {
+      width: 90%;
+    }
   }
 }
 @media (min-width: 850px) {
@@ -54,5 +60,11 @@
     background-color: #eee;
     border-radius: 50%;
     flex-direction: row;
+    .villager-photo {
+      margin: 0 2% 0 0;
+    }
+    .data {
+      width: 50%;
+    }
   }
 }
