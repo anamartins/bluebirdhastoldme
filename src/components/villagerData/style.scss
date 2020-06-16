@@ -1,13 +1,13 @@
 .villager-details {
-  width: 40%;
   display: flex;
-  margin: 1%;
-  position: fixed;
   top: 100px;
+  margin: 1%;
+  position: relative;
+  width: 80%;
+  background-color: royalblue;
 
   .villager-photo {
     margin: 2%;
-    max-height: 100px;
     max-width: 400px;
 
     img {
@@ -35,5 +35,24 @@
     .villager-gender {
       margin-left: 5px;
     }
+  }
+}
+
+@media (min-width: 550px) {
+  .villager-details {
+    position: fixed;
+    width: 35%;
+    background-color: plum;
+    border-radius: 5%;
+    flex-direction: column-reverse;
+  }
+}
+@media (min-width: 850px) {
+  .villager-details {
+    position: fixed;
+    width: 40%;
+    background-color: #eee;
+    border-radius: 50%;
+    flex-direction: row;
   }
 }

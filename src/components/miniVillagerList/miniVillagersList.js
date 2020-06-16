@@ -10,9 +10,9 @@ class MiniVillagersList extends React.Component {
   }
 
   render() {
-    const { villagers, loading } = this.props;
+    const { villagers, loading, title } = this.props;
     return (
-      <div className="villagers">
+      <div className={title === undefined ? "villagers" : "villagers-filter"}>
         {loading ? (
           <div className="loading">LOADING</div>
         ) : (
@@ -30,6 +30,7 @@ const mapStateToProps = ({ villagers, loading }) => ({ villagers, loading });
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
   loading: PropTypes.bool,
+  title: PropTypes.string,
 };
 
 export default withRouter(connect(mapStateToProps)(MiniVillagersList));

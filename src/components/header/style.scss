@@ -11,10 +11,12 @@
   .name {
     display: flex;
     img {
-      width: 8%;
+      width: 55px;
+      height: 100%;
+      margin-top: 4%;
     }
     h1 {
-      font-size: 250%;
+      font-size: 200%;
       font-family: "Playfair Display SC", serif;
       color: #333;
       a:hover {
@@ -22,6 +24,34 @@
         color: white;
         font-weight: normal;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .header {
+    .name {
+      img {
+        width: 60px;
+        margin-top: 4%;
+      }
+      h1 {
+        font-size: 225%;
+      }
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  .header {
+    .name {
+      img {
+        width: 70px;
+        margin-top: 3%;
+      }
+      h1 {
+        font-size: 250%;
       }
     }
   }

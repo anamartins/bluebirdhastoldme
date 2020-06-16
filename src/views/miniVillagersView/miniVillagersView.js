@@ -64,7 +64,7 @@ class MiniVillagersView extends React.Component {
       <div className="wrapper">
         <Header />
         {this.getH2(filter, value)}
-        <MiniVillagersList />
+        <MiniVillagersList title={value[0]} />
       </div>
     );
   }

@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   h2 {
-    top: 80px;
+    top: 100px;
     position: relative;
   }
   .villager-content {
@@ -12,11 +12,32 @@
 
     .tweets {
       width: 55%;
-      align-self: flex-end;
+      align-self: stretch;
       position: absolute;
       right: 2%;
       top: 100px;
       padding-bottom: 5%;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .villager-content {
+    display: flex;
+    .tweets {
+      position: absolute;
+      top: 100px;
+      align-self: flex-end;
+    }
+  }
+}
+@media (min-width: 850px) {
+  .villager-content {
+    display: flex;
+    .tweets {
+      position: absolute;
+      top: 100px;
+      align-self: flex-end;
     }
   }
 }
