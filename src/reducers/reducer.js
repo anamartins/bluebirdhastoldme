@@ -14,6 +14,7 @@ import {
   LOAD_MORE_TWEETS,
   LOAD_MORE_TWEETS_SUCCESS,
   LOAD_MORE_TWEETS_ERROR,
+  LOAD_SEARCH_VILLAGERS,
 } from "../actions/actions";
 
 export const defaultState = {
@@ -133,6 +134,12 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         message: "error",
+      };
+
+    case LOAD_SEARCH_VILLAGERS:
+      return {
+        ...state,
+        filteredVillagers: action.searchArray,
       };
     default:
       return state;

@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
-import { withRouter } from "react-router-dom";
-import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
 import Header from "../../components/header/header";
+import Search from "../../components/search/search";
+
+import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class MiniVillagersView extends React.Component {
   constructor(props) {
@@ -60,7 +63,7 @@ class MiniVillagersView extends React.Component {
         return <h2>{value} characters</h2>;
       }
     } else {
-      return null;
+      return <Search />;
     }
   }
 

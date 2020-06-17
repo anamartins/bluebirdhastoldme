@@ -40,7 +40,7 @@ const mapStateToProps = ({ villagers, filteredVillagers, loading }) => ({
 
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
-  filterdVillagers: PropTypes.array,
+  filteredVillagers: PropTypes.array,
   loading: PropTypes.bool,
   title: PropTypes.string,
 };

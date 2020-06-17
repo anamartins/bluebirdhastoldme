@@ -17,6 +17,7 @@ export const LOAD_TWEETS_ERROR = "LOAD_TWEETS_ERROR";
 export const LOAD_MORE_TWEETS = "LOAD_MORE_TWEETS";
 export const LOAD_MORE_TWEETS_SUCCESS = "LOAD_MORE_TWEETS_SUCCESS";
 export const LOAD_MORE_TWEETS_ERROR = "LOAD_MORE_TWEETS_ERROR";
+export const LOAD_SEARCH_VILLAGERS = "LOAD_SEARCH_VILLAGERS";
 
 export const loadTweets = (name) => {
   return (dispatch) => {
@@ -92,5 +93,11 @@ export const loadSingleVillager = (name) => {
       .catch(() => {
         dispatch({ type: LOAD_SINGLE_VILLAGER_ERROR });
       });
+  };
+};
+
+export const loadSearchVillagers = (searchArray) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_SEARCH_VILLAGERS, searchArray });
   };
 };
