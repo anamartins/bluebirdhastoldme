@@ -14,9 +14,15 @@ class MiniVillagersView extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.filter !== undefined) {
+    if (this.props.filter[0] !== "") {
       this.props.loadFilteredVillagers(this.props.filter, this.props.value);
     } else {
+      this.props.loadVillagers();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.filter[0] !== "" && this.props.filter[0] === "") {
       this.props.loadVillagers();
     }
   }
@@ -70,7 +76,10 @@ class MiniVillagersView extends React.Component {
   }
 }
 
-const mapStateToProps = ({ villagers, loading }, ownProps) => {
+const mapStateToProps = (
+  { villagers, filteredVillagers, loading },
+  ownProps
+) => {
   let search = ownProps.location.search;
   search = search.slice(1).split("&");
 
@@ -83,7 +92,7 @@ const mapStateToProps = ({ villagers, loading }, ownProps) => {
   let filter = Object.keys(filters);
   let value = Object.values(filters);
 
-  return { filter, value, villagers, loading };
+  return { filter, value, villagers, filteredVillagers, loading };
 };
 const mapDispatchToProps = (dispatch) => ({
   loadVillagers: () => dispatch(loadVillagers()),
@@ -94,9 +103,10 @@ const mapDispatchToProps = (dispatch) => ({
 MiniVillagersList.propTypes = {
   loadVillagers: PropTypes.func,
   loadFilteredVillagers: PropTypes.func,
-  filter: PropTypes.string,
-  value: PropTypes.string,
+  filter: PropTypes.object,
+  value: PropTypes.object,
   villagers: PropTypes.array,
+  filteredVillagers: PropTypes.array,
   loading: PropTypes.bool,
 };
 

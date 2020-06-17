@@ -21,6 +21,7 @@ export const defaultState = {
   loadingMore: false,
   message: null,
   villagers: [],
+  filteredVillagers: [],
   singleVillager: {},
   tweets: [],
   moreTweetsURL: null,
@@ -38,6 +39,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         loading: false,
         villagers: action.villagers,
+        filteredVillagers: [],
       };
 
     case LOAD_VILLAGERS_ERROR:
@@ -70,13 +72,14 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         loading: true,
+        filteredVillagers: [],
       };
 
     case LOAD_FILTERED_VILLAGERS_SUCCESS:
       return {
         ...state,
         loading: false,
-        villagers: action.filteredVillagers,
+        filteredVillagers: action.filteredVillagers,
       };
 
     case LOAD_FILTERED_VILLAGERS_ERROR:

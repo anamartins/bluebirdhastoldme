@@ -7,28 +7,40 @@ import { withRouter } from "react-router-dom";
 class MiniVillagersList extends React.Component {
   constructor(props) {
     super(props);
+    this.getVillagersArray = this.getVillagersArray.bind(this);
+  }
+
+  getVillagersArray(array) {
+    return array.map((villager, index) => (
+      <MiniVillager key={index} {...villager} />
+    ));
   }
 
   render() {
-    const { villagers, loading, title } = this.props;
+    const { villagers, filteredVillagers, loading, title } = this.props;
     return (
       <div className={title === undefined ? "villagers" : "villagers-filter"}>
         {loading ? (
           <div className="loading">LOADING</div>
+        ) : filteredVillagers.length !== 0 ? (
+          this.getVillagersArray(filteredVillagers)
         ) : (
-          villagers.map((villager, index) => (
-            <MiniVillager key={index} {...villager} />
-          ))
+          this.getVillagersArray(villagers)
         )}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ villagers, loading }) => ({ villagers, loading });
+const mapStateToProps = ({ villagers, filteredVillagers, loading }) => ({
+  villagers,
+  filteredVillagers,
+  loading,
+});
 
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
+  filterdVillagers: PropTypes.array,
   loading: PropTypes.bool,
   title: PropTypes.string,
 };
