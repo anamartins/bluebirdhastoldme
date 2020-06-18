@@ -96,8 +96,8 @@ export const loadSingleVillager = (name) => {
   };
 };
 
-export const loadSearchVillagers = (searchArray) => {
+export const loadSearchVillagers = (word) => {
   return (dispatch) => {
-    dispatch({ type: LOAD_SEARCH_VILLAGERS, searchArray });
+    dispatch({ type: LOAD_SEARCH_VILLAGERS, word });
   };
 };

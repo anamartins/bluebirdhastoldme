@@ -139,7 +139,9 @@ const reducer = (state = defaultState, action) => {
     case LOAD_SEARCH_VILLAGERS:
       return {
         ...state,
-        filteredVillagers: action.searchArray,
+        filteredVillagers: state.villagers.filter((villager) => {
+          return villager.name.includes(action.word);
+        }),
       };
     default:
       return state;

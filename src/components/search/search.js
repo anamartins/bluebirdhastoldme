@@ -19,20 +19,8 @@ class Search extends React.Component {
     this.filterVillagers = this.filterVillagers.bind(this);
   }
 
-  filterVillagers(term) {
-    let searchArray = [];
-    this.props.villagers.map((villager, index) => {
-      //FILTER
-      if (villager.name.includes(term)) {
-        console.log("YAY", term, villager.name, index);
-        searchArray.push(villager);
-      }
-
-      //this map (which actually should be a filter) should be on reducer.
-    });
-
-    console.log("searchArray", searchArray);
-    this.props.loadSearchVillagers(searchArray);
+  filterVillagers(word) {
+    this.props.loadSearchVillagers(word);
   }
 
   onTextChange(event) {
