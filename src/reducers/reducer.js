@@ -140,7 +140,7 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         filteredVillagers: state.villagers.filter((villager) => {
-          return villager.name.includes(action.word);
+          return villager.name.match(new RegExp(action.word, "i"));
         }),
       };
     default:
