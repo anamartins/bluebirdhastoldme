@@ -26,6 +26,7 @@ export const defaultState = {
   singleVillager: {},
   tweets: [],
   moreTweetsURL: null,
+  emptySearch: false,
 };
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -137,11 +138,13 @@ const reducer = (state = defaultState, action) => {
       };
 
     case LOAD_SEARCH_VILLAGERS:
+      const filteredVillagers = state.villagers.filter((villager) => {
+        return villager.name.match(new RegExp(action.word, "i"));
+      });
       return {
         ...state,
-        filteredVillagers: state.villagers.filter((villager) => {
-          return villager.name.match(new RegExp(action.word, "i"));
-        }),
+        filteredVillagers: filteredVillagers,
+        emptySearch: filteredVillagers.length === 0,
       };
     default:
       return state;

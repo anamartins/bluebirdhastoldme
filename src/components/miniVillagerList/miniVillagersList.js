@@ -7,41 +7,66 @@ import { withRouter } from "react-router-dom";
 class MiniVillagersList extends React.Component {
   constructor(props) {
     super(props);
-    this.getVillagersArray = this.getVillagersArray.bind(this);
+    this.loadVillagers = this.loadVillagers.bind(this);
+    this.renderVillagers = this.renderVillagers.bind(this);
   }
 
-  getVillagersArray(array) {
+  renderVillagers() {
+    const { villagers, filteredVillagers, emptySearch } = this.props;
+
+    if (filteredVillagers.length !== 0) {
+      return this.loadVillagers(filteredVillagers);
+    } else if (filteredVillagers.length === 0 && !emptySearch) {
+      return this.loadVillagers(villagers);
+    }
+    if (filteredVillagers.length === 0 && emptySearch) {
+      return <div>:(</div>;
+    }
+  }
+
+  loadVillagers(array) {
     return array.map((villager, index) => (
       <MiniVillager key={index} {...villager} />
     ));
   }
 
   render() {
-    const { villagers, filteredVillagers, loading, title } = this.props;
+    const {
+      villagers,
+      filteredVillagers,
+      loading,
+      emptySearch,
+      title,
+    } = this.props;
     return (
       <div className={title === undefined ? "villagers" : "villagers-filter"}>
         {loading ? (
           <div className="loading">LOADING</div>
-        ) : filteredVillagers.length !== 0 ? (
-          this.getVillagersArray(filteredVillagers)
         ) : (
-          this.getVillagersArray(villagers)
+          this.renderVillagers()
         )}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ villagers, filteredVillagers, loading }) => ({
+const mapStateToProps = ({
   villagers,
   filteredVillagers,
   loading,
+  emptySearch,
+}) => ({
+  villagers,
+  filteredVillagers,
+  loading,
+  emptySearch,
 });
 
 MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
   filteredVillagers: PropTypes.array,
   loading: PropTypes.bool,
+  emptySearch: PropTypes.bool,
   title: PropTypes.string,
 };
 

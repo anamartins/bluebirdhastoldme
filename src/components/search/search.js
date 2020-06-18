@@ -48,10 +48,16 @@ class Search extends React.Component {
   }
 }
 
-const mapStateToProps = ({ villagers, filteredVillagers, loading }) => ({
+const mapStateToProps = ({
   villagers,
   filteredVillagers,
   loading,
+  emptySearch,
+}) => ({
+  villagers,
+  filteredVillagers,
+  loading,
+  emptySearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -61,7 +67,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 Search.propTypes = {
   villagers: PropTypes.array,
+  filteredVillagers: PropTypes.array,
   loading: PropTypes.bool,
+  emptySearch: PropTypes.bool,
   loadSearchVillagers: PropTypes.func,
 };
 
