@@ -1,4 +1,19 @@
 .search {
   top: 120px;
-  position: fixed;
+  width: 85%;
+  position: relative;
+  text-align: center;
+  background-color: #e04a84;
+  padding: 2%;
+  border-radius: 5px;
+  label {
+    display: block;
+    padding-bottom: 1%;
+    font-size: 110%;
+  }
+  input {
+    border-radius: 10px;
+    border: 3px #ccc solid;
+    padding: 1%;
+  }
 }

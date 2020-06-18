@@ -31,7 +31,9 @@ class Search extends React.Component {
   render() {
     return (
       <div className="search">
-        <label htmlFor="search"></label>
+        <label htmlFor="search">
+          What people are saying about your favorite village?
+        </label>
         <input
           type="text"
           id="search"
