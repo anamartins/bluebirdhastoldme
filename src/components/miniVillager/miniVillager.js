@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IMG_BASE_URL } from "../../config/config";
+import { IMG_BASE_URL } from "../../../config/config";
 import "./style.scss";
 
 function MiniVillager({ name, icon }) {
