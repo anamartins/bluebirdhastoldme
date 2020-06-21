@@ -31,13 +31,7 @@ class MiniVillagersList extends React.Component {
   }
 
   render() {
-    const {
-      villagers,
-      filteredVillagers,
-      loading,
-      emptySearch,
-      title,
-    } = this.props;
+    const { loading, title } = this.props;
     return (
       <div className={title === undefined ? "villagers" : "villagers-filter"}>
         {loading ? (

@@ -8,6 +8,7 @@ import cake from "./img/birthday.png";
 import heart from "./img/heart.png";
 import smile from "./img/smile.png";
 import sun from "./img/sun.png";
+import { IMG_BASE_URL } from "../../config/config";
 
 class VillagerData extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class VillagerData extends React.Component {
     return (
       <div className="villager-details">
         <div className="villager-photo">
-          <img src={`/img/photos/villagers/${villager.photo}`} />
+          <img src={`${IMG_BASE_URL}/img/photos/villagers/${villager.photo}`} />
         </div>
         <div className="data">
           <h1>{villager.name}</h1>
