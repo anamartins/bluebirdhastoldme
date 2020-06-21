@@ -8,7 +8,7 @@ function Tweet({ created_at, text, user, id_str, extended_entities }) {
     <div className="tweet">
       <div className="tweet-up">
         <div className="user-photo">
-          <img src={user.profile_image_url} />
+          <img src={user.profile_image_url_https} />
         </div>
         <div className="tweet-data">
           <div className="user-name">
