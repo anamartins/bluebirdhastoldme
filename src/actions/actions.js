@@ -35,11 +35,11 @@ export const loadTweets = (name) => {
   };
 };
 
-export const loadMoreTweets = (name, url) => {
+export const loadMoreTweets = (slug, url) => {
   return (dispatch) => {
     dispatch({ type: LOAD_MORE_TWEETS });
     axios
-      .get(`${API_BASE_URL}tweets/${name}${url}`)
+      .get(`${API_BASE_URL}tweets/${slug}${url}`)
       .then((res) => {
         const tweets = res.data.tweets;
         const moreTweetsURL = res.data.next_results;

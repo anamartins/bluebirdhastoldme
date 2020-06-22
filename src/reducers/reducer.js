@@ -28,6 +28,7 @@ export const defaultState = {
   moreTweetsURL: null,
   emptySearch: false,
 };
+
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case LOAD_VILLAGERS:

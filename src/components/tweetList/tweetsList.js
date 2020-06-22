@@ -13,7 +13,7 @@ class TweetsList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.loadTweets(this.props.name);
+    this.props.loadTweets(this.props.slug);
   }
 
   componentDidUpdate(prevProps) {
@@ -37,7 +37,7 @@ class TweetsList extends React.Component {
   onTargetReach(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        this.props.loadMoreTweets(this.props.name, this.props.moreTweetsURL);
+        this.props.loadMoreTweets(this.props.slug, this.props.moreTweetsURL);
       }
     });
   }
@@ -64,9 +64,9 @@ class TweetsList extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const name = ownProps.match.params.name;
+  const slug = ownProps.match.params.slug;
   return {
-    name,
+    slug,
     tweets: state.tweets,
     loading: state.loading,
     loadingMore: state.loadingMore,

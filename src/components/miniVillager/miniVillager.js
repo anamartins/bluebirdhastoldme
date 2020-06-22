@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { IMG_BASE_URL } from "../../../config/config";
 import "./style.scss";
 
-function MiniVillager({ name, icon }) {
-  let url = "/villager/" + name;
+function MiniVillager({ slug, name, icon }) {
+  let url = "/villager/" + slug;
   return (
     <div className="mini-villager">
       <Link to={url}>

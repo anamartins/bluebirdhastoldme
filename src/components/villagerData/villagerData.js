@@ -16,11 +16,15 @@ class VillagerData extends React.Component {
   }
 
   componentDidMount() {
-    this.props.loadSingleVillager(this.props.name);
+    this.props.loadSingleVillager(this.props.slug);
+  }
+
+  componentDidUpdate() {
+    console.log("v", this.props.villager);
   }
 
   render() {
-    const { name, villager } = this.props;
+    const { slug, villager } = this.props;
     return (
       <div className="villager-details">
         <div className="villager-photo">
@@ -69,10 +73,11 @@ class VillagerData extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const name = ownProps.match.params.name;
+  const slug = ownProps.match.params.slug;
+  console.log("o", ownProps);
 
   return {
-    name,
+    slug,
     villager: state.singleVillager,
   };
 };

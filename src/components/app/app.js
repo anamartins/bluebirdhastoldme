@@ -12,7 +12,7 @@ function App() {
           <Route exact path="/">
             <MiniVillagersView />
           </Route>
-          <Route exact path="/villager/:name">
+          <Route exact path="/villager/:slug">
             <VillagerDetails />
           </Route>
           <Route exact path="?:filter=:value">
