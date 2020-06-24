@@ -32,7 +32,8 @@ class Search extends React.Component {
     return (
       <div className="search">
         <label htmlFor="search">
-          What people are saying about your favorite village?
+          What people are saying on Twitter about your favorite Animal Crossing:
+          New Horizons villager?
         </label>
         <input
           type="text"
