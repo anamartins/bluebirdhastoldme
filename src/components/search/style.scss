@@ -8,44 +8,76 @@
   border-radius: 5px;
   label {
     display: block;
-    padding-bottom: 1%;
-    font-size: 110%;
+    padding-bottom: 3%;
+    font-size: 100%;
   }
-  input {
-    border-radius: 10px;
-    border: 3px #ccc solid;
-    padding: 1%;
-  }
-  button {
-    position: absolute;
-    right: 40%;
-    top: 53%;
-    border: none;
-    height: 15%;
-    width: 2%;
-    border-radius: 100%;
-    outline: none;
-    text-align: center;
-    font-weight: bold;
-    padding: 2px;
-    cursor: pointer;
-    .visible {
-      visibility: visible;
+  .textBoxCombo {
+    position: relative;
+    input {
+      border-radius: 10px;
+      border: 3px #ccc solid;
+      padding: 1%;
+      height: 30px;
     }
-    .invisible {
-      visibility: hidden;
+    button {
+      position: relative;
+      border: none;
+      border-radius: 100%;
+      outline: none;
+      text-align: center;
+      font-weight: bold;
+      padding: 2px;
+      cursor: pointer;
+
+      right: 40px;
+      top: 62%;
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .search {
+    padding: 4%;
+    label {
+      padding-bottom: 2%;
+      font-size: 100%;
+      text-align: center;
+    }
+    .textBoxCombo {
+      input {
+        height: 25px;
+      }
+      button {
+        right: 40px;
+        top: 53%;
+      }
     }
   }
 }
 
 @media (min-width: 850px) {
   .search {
-    padding: 2%;
+    padding: 3%;
+    label {
+      padding-bottom: 1%;
+      font-size: 110%;
+    }
+    .textBoxCombo {
+      input {
+        height: 20px;
+      }
+      button {
+        right: 35px;
+        top: 50%;
+      }
+    }
   }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 1000px) {
   .search {
-    padding: 3%;
+    padding: 2%;
   }
 }

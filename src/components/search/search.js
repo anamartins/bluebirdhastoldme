@@ -43,18 +43,20 @@ class Search extends React.Component {
           What people are saying on Twitter about your favorite Animal Crossing:
           New Horizons villager?
         </label>
-        <input
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Type a villager name here..."
-          size="34"
-          value={this.state.value}
-          onChange={this.onTextChange}
-        />
-        <button id="erase" onClick={this.onEraseClickButton}>
-          X
-        </button>
+        <div className="textBoxCombo">
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Type a villager name here..."
+            size="34"
+            value={this.state.value}
+            onChange={this.onTextChange}
+          />
+          <button id="erase" onClick={this.onEraseClickButton}>
+            X
+          </button>
+        </div>
       </div>
     );
   }
