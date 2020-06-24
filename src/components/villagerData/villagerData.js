@@ -19,10 +19,6 @@ class VillagerData extends React.Component {
     this.props.loadSingleVillager(this.props.slug);
   }
 
-  componentDidUpdate() {
-    console.log("v", this.props.villager);
-  }
-
   render() {
     const { slug, villager } = this.props;
     return (
@@ -74,7 +70,6 @@ class VillagerData extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const slug = ownProps.match.params.slug;
-  console.log("o", ownProps);
 
   return {
     slug,
