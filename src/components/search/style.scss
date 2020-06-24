@@ -16,6 +16,26 @@
     border: 3px #ccc solid;
     padding: 1%;
   }
+  button {
+    position: absolute;
+    right: 40%;
+    top: 53%;
+    border: none;
+    height: 15%;
+    width: 2%;
+    border-radius: 100%;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 2px;
+    cursor: pointer;
+    .visible {
+      visibility: visible;
+    }
+    .invisible {
+      visibility: hidden;
+    }
+  }
 }
 
 @media (min-width: 850px) {

@@ -17,6 +17,7 @@ class Search extends React.Component {
 
     this.onTextChange = this.onTextChange.bind(this);
     this.filterVillagers = this.filterVillagers.bind(this);
+    this.onEraseClickButton = this.onEraseClickButton.bind(this);
   }
 
   filterVillagers(word) {
@@ -26,6 +27,13 @@ class Search extends React.Component {
   onTextChange(event) {
     this.filterVillagers(event.target.value);
     this.setState({ value: event.target.value });
+  }
+
+  onEraseClickButton() {
+    if (this.state.value.length !== 0) {
+      this.filterVillagers(event.target.value);
+      this.setState({ value: "" });
+    }
   }
 
   render() {
@@ -44,6 +52,9 @@ class Search extends React.Component {
           value={this.state.value}
           onChange={this.onTextChange}
         />
+        <button id="erase" onClick={this.onEraseClickButton}>
+          X
+        </button>
       </div>
     );
   }
