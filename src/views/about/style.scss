@@ -11,4 +11,14 @@
       }
     }
   }
+  ul {
+    li {
+      a {
+        color: #e04a84;
+        &:hover {
+          color: #e04a84;
+        }
+      }
+    }
+  }
 }
