@@ -12,7 +12,6 @@ function Header() {
           <Link to="/">Blue Bird Has Told Me</Link>
         </h1>
       </div>
-      <div className="name"></div>
     </div>
   );
 }

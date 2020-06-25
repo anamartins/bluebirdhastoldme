@@ -1,5 +1,6 @@
 import React from "react";
 import MiniVillagersView from "../../views/miniVillagersView/miniVillagersView";
+import AboutView from "../../views/about/aboutView";
 import VillagerDetails from "../../views/villagerDetails/villagerDetails";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.scss";
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route exact path="?:filter=:value">
             <MiniVillagersView />
+          </Route>
+          <Route exact path="/about">
+            <AboutView />
           </Route>
         </Switch>
       </div>

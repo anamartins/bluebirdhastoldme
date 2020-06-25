@@ -1,0 +1,14 @@
+.about-content {
+  top: 100px;
+  width: 85%;
+  margin: 0 1% 60px 1%;
+  position: absolute;
+  p {
+    a {
+      color: #e04a84;
+      &:hover {
+        color: #e04a84;
+      }
+    }
+  }
+}

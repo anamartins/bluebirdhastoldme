@@ -5,6 +5,9 @@
   h2 {
     top: 100px;
     position: relative;
+    &.about {
+      top: 0;
+    }
   }
   .villager-content {
     display: block;

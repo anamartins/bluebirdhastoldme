@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
+import Footer from "../../components/footer/footer";
 
 import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
 import { connect } from "react-redux";
@@ -74,6 +75,7 @@ class MiniVillagersView extends React.Component {
         <Header />
         {this.getH2(filter, value)}
         <MiniVillagersList title={value[0]} />
+        <Footer />
       </div>
     );
   }
