@@ -8,7 +8,7 @@
   width: 85%;
   margin: 0 1%;
   position: relative;
-
+  padding-bottom: 18%;
   .mini-villager {
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -49,11 +49,13 @@
   .villagers,
   .villagers-filter {
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    padding-bottom: 10%;
   }
 }
 @media (min-width: 850px) {
   .villagers,
   .villagers-filter {
     grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+    padding-bottom: 7%;
   }
 }
