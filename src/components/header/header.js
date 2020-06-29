@@ -25,10 +25,8 @@ class Header extends React.Component {
   handleScroll() {
     if (window.scrollY !== 0 && !this.state.scroll) {
       this.setState({ scroll: true });
-      console.log("set state true");
     } else if (window.scrollY === 0 && this.state.scroll) {
       this.setState({ scroll: false });
-      console.log("set state false");
     }
   }
 
