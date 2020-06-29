@@ -133,7 +133,6 @@ class AboutView extends React.Component {
             some coins (real life ones, not bells!).
           </p>
         </div>
-        <Footer />
       </div>
     );
   }

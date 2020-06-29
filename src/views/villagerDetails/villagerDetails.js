@@ -19,7 +19,6 @@ class VillagersDetails extends React.Component {
           <VillagerData />
           <TweetsList />
         </div>
-        <Footer />
       </div>
     );
   }
