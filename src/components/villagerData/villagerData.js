@@ -20,11 +20,13 @@ class VillagerData extends React.Component {
   }
 
   render() {
-    const { slug, villager } = this.props;
+    const { villager } = this.props;
     return (
       <div className="villager-details">
         <div className="villager-photo">
-          <img src={`${IMG_BASE_URL}/img/photos/villagers/${villager.photo}`} />
+          <img
+            src={`${IMG_BASE_URL}/img/posters/villagers/${villager.poster}`}
+          />
         </div>
         <div className="data">
           <h1>{villager.name}</h1>

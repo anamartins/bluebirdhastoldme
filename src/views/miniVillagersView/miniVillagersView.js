@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
+import Birthday from "../../components/birthday/birthday";
 import Footer from "../../components/footer/footer";
 
 import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
