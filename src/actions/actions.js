@@ -11,26 +11,33 @@ export const LOAD_FILTERED_VILLAGERS = "LOAD_FILTERED_VILLAGERS";
 export const LOAD_FILTERED_VILLAGERS_SUCCESS =
   "LOAD_FILTERED_VILLAGERS_SUCCESS";
 export const LOAD_FILTERED_VILLAGERS_ERROR = "LOAD_FILTERED_VILLAGERS_ERROR";
-export const LOAD_TWEETS = "LOAD_TWEETS";
-export const LOAD_TWEETS_SUCCESS = "LOAD_TWEETS_SUCCESS";
-export const LOAD_TWEETS_ERROR = "LOAD_TWEETS_ERROR";
+export const LOAD_VILLAGER_DETAILS = "LOAD_VILLAGER_DETAILS";
+export const LOAD_VILLAGER_DETAILS_SUCCESS = "LOAD_VILLAGER_DETAILS_SUCCESS";
+export const LOAD_VILLAGER_DETAILS_ERROR = "LOAD_VILLAGER_DETAILS_ERROR";
 export const LOAD_MORE_TWEETS = "LOAD_MORE_TWEETS";
 export const LOAD_MORE_TWEETS_SUCCESS = "LOAD_MORE_TWEETS_SUCCESS";
 export const LOAD_MORE_TWEETS_ERROR = "LOAD_MORE_TWEETS_ERROR";
 export const LOAD_SEARCH_VILLAGERS = "LOAD_SEARCH_VILLAGERS";
 
-export const loadTweets = (name) => {
+export const loadVillagerDetails = (name) => {
   return (dispatch) => {
-    dispatch({ type: LOAD_TWEETS });
+    dispatch({ type: LOAD_VILLAGER_DETAILS });
     axios
       .get(`${API_BASE_URL}tweets/${name}`)
       .then((res) => {
+        console.log("res", res.data.villager);
+        const villager = res.data.villager;
         const tweets = res.data.tweets;
         const moreTweetsURL = res.data.next_results;
-        dispatch({ type: LOAD_TWEETS_SUCCESS, tweets, moreTweetsURL });
+        dispatch({
+          type: LOAD_VILLAGER_DETAILS_SUCCESS,
+          villager,
+          tweets,
+          moreTweetsURL,
+        });
       })
       .catch((error) => {
-        dispatch({ type: LOAD_TWEETS_ERROR });
+        dispatch({ type: LOAD_VILLAGER_DETAILS_ERROR });
       });
   };
 };
@@ -77,21 +84,6 @@ export const loadVillagers = () => {
       })
       .catch(() => {
         dispatch({ type: LOAD_VILLAGERS_ERROR });
-      });
-  };
-};
-
-export const loadSingleVillager = (name) => {
-  return (dispatch) => {
-    dispatch({ type: LOAD_SINGLE_VILLAGER });
-    axios
-      .get(API_BASE_URL + "villagers/" + name)
-      .then((res) => {
-        const villager = res.data;
-        dispatch({ type: LOAD_SINGLE_VILLAGER_SUCCESS, villager });
-      })
-      .catch(() => {
-        dispatch({ type: LOAD_SINGLE_VILLAGER_ERROR });
       });
   };
 };

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadTweets, loadMoreTweets } from "../../actions/actions";
+import { loadMoreTweets } from "../../actions/actions";
 import Tweet from "../tweet/tweet";
 
 class TweetsList extends React.Component {
@@ -12,12 +12,9 @@ class TweetsList extends React.Component {
     this.onTargetReach = this.onTargetReach.bind(this);
   }
 
-  componentDidMount() {
-    this.props.loadTweets(this.props.slug);
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.moreTweetsURL === null && this.props.moreTweetsURL) {
+      //maybe here there's the answer to more tweets bug
       this.initObserver();
     }
   }
@@ -75,12 +72,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadTweets: (name) => dispatch(loadTweets(name)),
   loadMoreTweets: (name, url) => dispatch(loadMoreTweets(name, url)),
 });
 
 TweetsList.propTypes = {
-  loadTweets: PropTypes.func,
   loadMoreTweets: PropTypes.func,
   loading: PropTypes.bool,
   loadingMore: PropTypes.bool,

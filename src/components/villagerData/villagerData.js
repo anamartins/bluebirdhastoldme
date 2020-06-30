@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import { loadSingleVillager } from "../../actions/actions";
 import "./style.scss";
 import cake from "./img/birthday.png";
 import heart from "./img/heart.png";
@@ -13,10 +12,6 @@ import { IMG_BASE_URL } from "../../../config/config";
 class VillagerData extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    this.props.loadSingleVillager(this.props.slug);
   }
 
   render() {
@@ -79,15 +74,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  loadSingleVillager: (name) => dispatch(loadSingleVillager(name)),
-});
-
 VillagerData.propTypes = {
-  name: PropTypes.string,
-  loadSingleVillager: PropTypes.func,
+  slug: PropTypes.string,
+  villager: PropTypes.object,
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(VillagerData)
-);
+export default withRouter(connect(mapStateToProps)(VillagerData));
