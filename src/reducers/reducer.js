@@ -17,6 +17,7 @@ import {
 export const defaultState = {
   loading: false,
   loadingMore: false,
+  showLoadMoreDiv: false,
   message: null,
   villagers: [],
   filteredVillagers: [],
@@ -84,6 +85,7 @@ const reducer = (state = defaultState, action) => {
           return tweet.extended_entities;
         }),
         moreTweetsURL: action.moreTweetsURL,
+        showLoadMoreDiv: true,
       };
 
     case LOAD_VILLAGER_DETAILS_ERROR:
