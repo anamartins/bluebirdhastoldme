@@ -5,6 +5,9 @@ import {
   LOAD_FILTERED_VILLAGERS,
   LOAD_FILTERED_VILLAGERS_SUCCESS,
   LOAD_FILTERED_VILLAGERS_ERROR,
+  LOAD_BIRTHDAY_VILLAGER,
+  LOAD_BIRTHDAY_VILLAGER_SUCCESS,
+  LOAD_BIRTHDAY_VILLAGER_ERROR,
   LOAD_VILLAGER_DETAILS,
   LOAD_VILLAGER_DETAILS_SUCCESS,
   LOAD_VILLAGER_DETAILS_ERROR,
@@ -25,6 +28,7 @@ export const defaultState = {
   tweets: [],
   moreTweetsURL: null,
   emptySearch: false,
+  birthday: [],
 };
 
 const reducer = (state = defaultState, action) => {
@@ -127,6 +131,22 @@ const reducer = (state = defaultState, action) => {
         ...state,
         filteredVillagers: filteredVillagers,
         emptySearch: filteredVillagers.length === 0,
+      };
+
+    case LOAD_BIRTHDAY_VILLAGER:
+      return {
+        ...state,
+      };
+    case LOAD_BIRTHDAY_VILLAGER_SUCCESS:
+      return {
+        ...state,
+        birthday: action.birthdayVillagers,
+      };
+
+    case LOAD_BIRTHDAY_VILLAGER_ERROR:
+      return {
+        ...state,
+        message: "error",
       };
     default:
       return state;

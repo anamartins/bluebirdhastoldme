@@ -18,6 +18,9 @@ export const LOAD_MORE_TWEETS = "LOAD_MORE_TWEETS";
 export const LOAD_MORE_TWEETS_SUCCESS = "LOAD_MORE_TWEETS_SUCCESS";
 export const LOAD_MORE_TWEETS_ERROR = "LOAD_MORE_TWEETS_ERROR";
 export const LOAD_SEARCH_VILLAGERS = "LOAD_SEARCH_VILLAGERS";
+export const LOAD_BIRTHDAY_VILLAGER = "LOAD_BIRTHDAY_VILLAGER";
+export const LOAD_BIRTHDAY_VILLAGER_SUCCESS = "LOAD_BIRTHDAY_VILLAGER_SUCCESS";
+export const LOAD_BIRTHDAY_VILLAGER_ERROR = "LOAD_BIRTHDAY_VILLAGER_ERROR";
 
 export const loadVillagerDetails = (name) => {
   return (dispatch) => {
@@ -69,6 +72,30 @@ export const loadFilteredVillagers = (filter, value) => {
       })
       .catch(() => {
         dispatch({ type: LOAD_FILTERED_VILLAGERS_ERROR });
+      });
+  };
+};
+
+export const loadBirthdayVillager = (day, month) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_BIRTHDAY_VILLAGER });
+    axios
+      .get(`${API_BASE_URL}villagers?birthdayDay=${day}&birthdayMonth=${month}`)
+      .then((res) => {
+        console.log("res.data", res.data);
+        // const birthdayVillagers = res.data.map(
+        //   (villager, index) => villager.slug
+        // );
+        // const birthdayIcons = res.data.map((villager, index) => villager.icon);
+        const birthdayVillagers = res.data;
+        // console.log("birthday icons", birthdayIcons);
+        dispatch({
+          type: LOAD_BIRTHDAY_VILLAGER_SUCCESS,
+          birthdayVillagers,
+        });
+      })
+      .catch(() => {
+        dispatch({ type: LOAD_BIRTHDAY_VILLAGER_ERROR });
       });
   };
 };

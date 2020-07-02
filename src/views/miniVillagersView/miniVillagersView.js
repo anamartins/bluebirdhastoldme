@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
 import Birthday from "../../components/birthday/birthday";
-import Footer from "../../components/footer/footer";
-
 import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -75,6 +72,7 @@ class MiniVillagersView extends React.Component {
       <div className="wrapper">
         <Header />
         {this.getH2(filter, value)}
+        <Birthday />
         <MiniVillagersList title={value[0]} />
       </div>
     );
