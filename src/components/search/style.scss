@@ -6,9 +6,11 @@
     position: relative;
     text-align: center;
     background-color: #e04a84;
-    padding: 4%;
     border-radius: 5px;
     color: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     label {
       display: block;
       padding-bottom: 3%;
@@ -21,9 +23,10 @@
         border: 3px #ccc solid;
         padding: 1%;
         height: 30px;
+        width: 100%;
       }
       button {
-        position: relative;
+        position: absolute;
         border: none;
         border-radius: 100%;
         outline: none;
@@ -33,17 +36,8 @@
         cursor: pointer;
         height: 30px;
         width: 30px;
-      }
-    }
-  }
-}
-
-@media (min-width: 366px) {
-  .search {
-    .textBoxCombo {
-      button {
-        right: 35px;
-        top: 0px;
+        top: 5px;
+        right: -5px;
       }
     }
   }
@@ -61,10 +55,6 @@
       input {
         height: 25px;
       }
-      button {
-        right: 40px;
-        top: 53%;
-      }
     }
   }
 }
@@ -79,10 +69,6 @@
     .textBoxCombo {
       input {
         height: 20px;
-      }
-      button {
-        right: 35px;
-        top: 50%;
       }
     }
   }
