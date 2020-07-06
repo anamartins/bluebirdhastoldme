@@ -1,39 +1,62 @@
-.search {
-  top: 120px;
+.search-birthday {
   width: 85%;
-  position: relative;
-  text-align: center;
-  background-color: #e04a84;
-  padding: 4%;
-  border-radius: 5px;
-  color: #fff;
-  label {
-    display: block;
-    padding-bottom: 3%;
-    font-size: 100%;
-  }
-  .textBoxCombo {
-    position: relative;
-    input {
-      border-radius: 10px;
-      border: 3px #ccc solid;
-      padding: 1%;
-      height: 30px;
-    }
-    button {
-      position: relative;
-      border: none;
-      border-radius: 100%;
-      outline: none;
-      text-align: center;
-      font-weight: bold;
-      padding: 2px;
-      cursor: pointer;
 
-      right: 40px;
-      top: 62%;
-      height: 30px;
-      width: 30px;
+  .search {
+    top: 120px;
+    position: relative;
+    text-align: center;
+    background-color: #e04a84;
+    padding: 4%;
+    border-radius: 5px;
+    color: #fff;
+    label {
+      display: block;
+      padding-bottom: 3%;
+      font-size: 100%;
+    }
+    .textBoxCombo {
+      position: relative;
+      input {
+        border-radius: 10px;
+        border: 3px #ccc solid;
+        padding: 1%;
+        height: 30px;
+      }
+      button {
+        position: relative;
+        border: none;
+        border-radius: 100%;
+        outline: none;
+        text-align: center;
+        font-weight: bold;
+        padding: 2px;
+        cursor: pointer;
+
+        right: 40px;
+        top: 62%;
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .search {
+    padding: 4%;
+    label {
+      padding-bottom: 2%;
+      font-size: 100%;
+      text-align: center;
+    }
+    .textBoxCombo {
+      input {
+        height: 25px;
+      }
+      button {
+        right: 40px;
+        top: 53%;
+      }
     }
   }
 }

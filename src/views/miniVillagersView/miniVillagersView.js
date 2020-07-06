@@ -62,7 +62,12 @@ class MiniVillagersView extends React.Component {
         return <h2>{value} characters</h2>;
       }
     } else {
-      return <Search />;
+      return (
+        <div className="search-birthday">
+          <Search />
+          <Birthday />
+        </div>
+      );
     }
   }
 
@@ -72,7 +77,6 @@ class MiniVillagersView extends React.Component {
       <div className="wrapper">
         <Header />
         {this.getH2(filter, value)}
-        <Birthday />
         <MiniVillagersList title={value[0]} />
       </div>
     );

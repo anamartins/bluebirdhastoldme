@@ -36,11 +36,11 @@ class Birthday extends React.Component {
   render() {
     return (
       <div className="birthday">
-        <span>TODAY IS </span>
+        TODAY IS{" "}
         {this.props.birthday.map((villager, index) => (
           <MiniVillager key={index} {...villager} />
-        ))}
-        <span>BIRTHDAY!</span>
+        ))}{" "}
+        BIRTHDAY!
       </div>
     );
   }

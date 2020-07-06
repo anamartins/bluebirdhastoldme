@@ -1,6 +1,31 @@
 .birthday {
   font-family: "Pangolin", cursive;
-  width: 100%;
-  top: 150px;
+  top: 135px;
   position: relative;
+  background-color: #66d2bb;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .mini-villager {
+    font-family: "Roboto", sans-serif;
+    color: #000;
+    padding: 15px;
+    justify-content: center;
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #aaa;
+      margin-right: 10%;
+    }
+  }
 }
