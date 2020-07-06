@@ -31,9 +31,6 @@
         font-weight: bold;
         padding: 2px;
         cursor: pointer;
-
-        right: 40px;
-        top: 62%;
         height: 30px;
         width: 30px;
       }
@@ -41,21 +38,12 @@
   }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 366px) {
   .search {
-    padding: 4%;
-    label {
-      padding-bottom: 2%;
-      font-size: 100%;
-      text-align: center;
-    }
     .textBoxCombo {
-      input {
-        height: 25px;
-      }
       button {
-        right: 40px;
-        top: 53%;
+        right: 35px;
+        top: 0px;
       }
     }
   }
