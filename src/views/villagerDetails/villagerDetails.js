@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import TweetsList from "../../components/tweetList/tweetsList";
-import { loadVillagerDetails } from "../../actions/actions";
-import Header from "../../components/header/header";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { loadVillagerDetails } from "../../actions/actions";
+import Header from "../../components/header/header";
+import TweetsList from "../../components/tweetList/tweetsList";
 import VillagerData from "../../components/villagerData/villagerData";
 import "./style.scss";
 

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MiniVillager from "../miniVillager/miniVillager";
 import { withRouter } from "react-router-dom";
+import MiniVillager from "../miniVillager/miniVillager";
 
 class MiniVillagersList extends React.Component {
   constructor(props) {

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
 import Birthday from "../../components/birthday/birthday";
-import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 class MiniVillagersView extends React.Component {
   constructor(props) {
@@ -32,43 +32,32 @@ class MiniVillagersView extends React.Component {
   getH2(filter, value) {
     if (value[0]) {
       if (filter[0] === "birthdayMonth") {
-        switch (value[0]) {
-          case "1":
-            return <h2>Birthdays of January</h2>;
-          case "2":
-            return <h2>Birthdays of February</h2>;
-          case "3":
-            return <h2>Birthdays of March</h2>;
-          case "4":
-            return <h2>Birthdays of Abril</h2>;
-          case "5":
-            return <h2>Birthdays of May</h2>;
-          case "6":
-            return <h2>Birthdays of June</h2>;
-          case "7":
-            return <h2>Birthdays of July</h2>;
-          case "8":
-            return <h2>Birthdays of August</h2>;
-          case "9":
-            return <h2>Birthdays of September</h2>;
-          case "10":
-            return <h2>Birthdays of October</h2>;
-          case "11":
-            return <h2>Birthdays of November</h2>;
-          case "12":
-            return <h2>Birthdays of December</h2>;
-        }
+        const monthsArray = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "November",
+          "December",
+        ];
+
+        let month = monthsArray[value[0] - 1];
+        return <h2>Birthdays of {month}</h2>;
       } else {
         return <h2>{value} characters</h2>;
       }
-    } else {
-      return (
-        <div className="search-birthday">
-          <Search />
-          <Birthday />
-        </div>
-      );
     }
+    return (
+      <div className="search-birthday">
+        <Search />
+        <Birthday />
+      </div>
+    );
   }
 
   render() {

@@ -82,13 +82,7 @@ export const loadBirthdayVillager = (day, month) => {
     axios
       .get(`${API_BASE_URL}villagers?birthdayDay=${day}&birthdayMonth=${month}`)
       .then((res) => {
-        console.log("res.data", res.data);
-        // const birthdayVillagers = res.data.map(
-        //   (villager, index) => villager.slug
-        // );
-        // const birthdayIcons = res.data.map((villager, index) => villager.icon);
         const birthdayVillagers = res.data;
-        // console.log("birthday icons", birthdayIcons);
         dispatch({
           type: LOAD_BIRTHDAY_VILLAGER_SUCCESS,
           birthdayVillagers,

@@ -1,7 +1,7 @@
 import React from "react";
 import Gallery from "../gallery/gallery";
-import "./style.scss";
 import twitterLogo from "./img/Twitter_Logo_Blue.png";
+import "./style.scss";
 
 function Tweet({ created_at, text, user, id_str, extended_entities }) {
   return (

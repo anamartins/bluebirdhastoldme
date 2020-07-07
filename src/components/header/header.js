@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.scss";
-import logo from "./img/leaf.png";
 import { Link } from "react-router-dom";
+import logo from "./img/leaf.png";
+import "./style.scss";
 
 class Header extends React.Component {
   constructor(props) {

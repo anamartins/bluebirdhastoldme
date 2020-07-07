@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import App from "./components/app/app";
-import thunk from "redux-thunk";
 
 import reducer, { defaultState } from "./reducers/reducer";
 

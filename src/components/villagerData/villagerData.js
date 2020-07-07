@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { IMG_BASE_URL } from "../../../config/config";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import "./style.scss";
 import cake from "./img/birthday.png";
 import heart from "./img/heart.png";
 import smile from "./img/smile.png";
 import sun from "./img/sun.png";
-import { IMG_BASE_URL } from "../../../config/config";
+import "./style.scss";
 
 class VillagerData extends React.Component {
   constructor(props) {

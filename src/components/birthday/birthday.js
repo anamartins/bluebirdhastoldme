@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { loadBirthdayVillager } from "../../actions/actions";
-import "./style.scss";
 import MiniVillager from "../miniVillager/miniVillager";
+import "./style.scss";
 
 class Birthday extends React.Component {
   constructor(props) {
@@ -16,21 +16,11 @@ class Birthday extends React.Component {
     this.getBirthdayVillager();
   }
 
-  componentDidUpdate() {
-    console.log("b update", this.props.birthday);
-    console.log("0", this.props.birthday[0]);
-  }
-
   getBirthdayVillager() {
     const today = new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
-    console.log("today", today);
-    console.log("day/month", day, month);
-
     this.props.loadBirthdayVillager(day, month);
-    console.log("b function", this.props.birthday);
-    console.log("0", this.props.birthday[0]);
   }
 
   render() {
