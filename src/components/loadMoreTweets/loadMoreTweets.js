@@ -39,11 +39,7 @@ class LoadMoreTweets extends React.Component {
   render() {
     return (
       <div className="load-tweets" ref={this.target}>
-        {this.props.loadingMore ? (
-          <div className="loading">LOADING</div>
-        ) : (
-          "FIM"
-        )}
+        {this.props.loadingMore ? <div className="loading">LOADING</div> : ""}
       </div>
     );
   }
