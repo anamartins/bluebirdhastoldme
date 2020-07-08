@@ -28,7 +28,6 @@ export const loadVillagerDetails = (name) => {
     axios
       .get(`${API_BASE_URL}tweets/${name}`)
       .then((res) => {
-        console.log("res", res.data.villager);
         const villager = res.data.villager;
         const tweets = res.data.tweets;
         const moreTweetsURL = res.data.next_results;

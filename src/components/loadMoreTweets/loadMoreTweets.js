@@ -39,7 +39,11 @@ class LoadMoreTweets extends React.Component {
   render() {
     return (
       <div className="load-tweets" ref={this.target}>
-        {this.props.loadingMore ? <div className="loading">LOADING</div> : null}
+        {this.props.loadingMore ? (
+          <div className="loading">LOADING</div>
+        ) : (
+          "FIM"
+        )}
       </div>
     );
   }
@@ -49,6 +53,7 @@ const mapStateToProps = (state, ownProps) => {
   const slug = ownProps.match.params.slug;
   return {
     slug,
+    loadingMore: state.loadingMore,
     moreTweetsURL: state.moreTweetsURL,
   };
 };

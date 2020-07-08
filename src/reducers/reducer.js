@@ -105,6 +105,7 @@ const reducer = (state = defaultState, action) => {
       };
 
     case LOAD_MORE_TWEETS_SUCCESS:
+      console.log("more", action.moreTweetsURL);
       return {
         ...state,
         loadingMore: false,
@@ -115,6 +116,8 @@ const reducer = (state = defaultState, action) => {
           }),
         ],
         moreTweetsURL: action.moreTweetsURL,
+        showLoadMoreDiv:
+          action.moreTweetsURL !== null && action.moreTweetsURL !== undefined,
       };
 
     case LOAD_MORE_TWEETS_ERROR:
