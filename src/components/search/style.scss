@@ -1,45 +1,41 @@
-.search-birthday {
-  width: 85%;
-
-  .search {
-    top: 120px;
+.search {
+  top: 120px;
+  position: relative;
+  text-align: center;
+  background-color: #e04a84;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 2%;
+  label {
+    display: block;
+    padding-bottom: 3%;
+    font-size: 100%;
+  }
+  .textBoxCombo {
     position: relative;
-    text-align: center;
-    background-color: #e04a84;
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    padding: 2%;
-    label {
-      display: block;
-      padding-bottom: 3%;
-      font-size: 100%;
+    input {
+      border-radius: 10px;
+      border: 3px #ccc solid;
+      padding: 1%;
+      height: 30px;
+      width: 95%;
     }
-    .textBoxCombo {
-      position: relative;
-      input {
-        border-radius: 10px;
-        border: 3px #ccc solid;
-        padding: 1%;
-        height: 30px;
-        width: 95%;
-      }
-      button {
-        position: absolute;
-        border: none;
-        border-radius: 100%;
-        outline: none;
-        text-align: center;
-        font-weight: bold;
-        padding: 2px;
-        cursor: pointer;
-        height: 30px;
-        width: 30px;
-        top: 5px;
-        right: 5px;
-      }
+    button {
+      position: absolute;
+      border: none;
+      border-radius: 100%;
+      outline: none;
+      text-align: center;
+      font-weight: bold;
+      padding: 2px;
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      top: 5px;
+      right: 5px;
     }
   }
 }

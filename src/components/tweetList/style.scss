@@ -1,0 +1,26 @@
+.tweets {
+  width: 100%;
+  align-self: center;
+  position: relative;
+  right: 0;
+  top: 100px;
+  padding-bottom: 5%;
+}
+@media (min-width: 550px) {
+  .tweets {
+    width: 60%;
+    position: absolute;
+    top: 100px;
+    align-self: flex-end;
+    right: 2%;
+  }
+}
+@media (min-width: 850px) {
+  .tweets {
+    width: 55%;
+    position: absolute;
+    top: 100px;
+    align-self: flex-end;
+    right: 2%;
+  }
+}

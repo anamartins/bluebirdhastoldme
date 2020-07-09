@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import MiniVillager from "../miniVillager/miniVillager";
+import "./style.scss";
 
 class MiniVillagersList extends React.Component {
   constructor(props) {
