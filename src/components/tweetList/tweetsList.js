@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Tweet from "../tweet/tweet";
 import LoadMoreTweets from "../loadMoreTweets/loadMoreTweets";
+import "./style.scss";
 
 class TweetsList extends React.Component {
   constructor(props) {
