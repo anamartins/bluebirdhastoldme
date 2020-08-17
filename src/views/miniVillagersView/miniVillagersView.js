@@ -7,6 +7,7 @@ import MiniVillagersList from "../../components/miniVillagerList/miniVillagersLi
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
 import Birthday from "../../components/birthday/birthday";
+import "./style.scss";
 
 class MiniVillagersView extends React.Component {
   constructor(props) {

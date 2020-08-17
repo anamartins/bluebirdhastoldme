@@ -1,8 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MiniVillagersView from "../../views/miniVillagersView/miniVillagersView";
 import AboutView from "../../views/about/aboutView";
 import VillagerDetails from "../../views/villagerDetails/villagerDetails";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.scss";
 
 class App extends React.Component {
