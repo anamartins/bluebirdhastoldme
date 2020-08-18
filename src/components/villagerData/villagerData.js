@@ -12,6 +12,13 @@ import "./style.scss";
 class VillagerData extends React.Component {
   constructor(props) {
     super(props);
+    this.loadVillagerPoster = this.loadVillagerPoster.bind(this);
+  }
+
+  loadVillagerPoster(poster) {
+    if (poster !== undefined) {
+      return `${IMG_BASE_URL}/img/posters/villagers/${poster}`;
+    }
   }
 
   render() {
@@ -19,9 +26,7 @@ class VillagerData extends React.Component {
     return (
       <div className="villager-details">
         <div className="villager-photo">
-          <img
-            src={`${IMG_BASE_URL}/img/posters/villagers/${villager.poster}`}
-          />
+          <img src={this.loadVillagerPoster(villager.poster)} />
         </div>
         <div className="data">
           <h1>{villager.name}</h1>
