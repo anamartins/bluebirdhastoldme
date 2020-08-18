@@ -32,25 +32,29 @@ class MiniVillagersView extends React.Component {
 
   getH2(filter, value) {
     if (value[0]) {
-      if (filter[0] === "birthdayMonth") {
-        const monthsArray = [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "November",
-          "December",
-        ];
+      switch (filter[0]) {
+        case "birthdayMonth": {
+          const monthsArray = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "November",
+            "December",
+          ];
+          let month = monthsArray[value[0] - 1];
+          return <h2>Birthdays of {month}</h2>;
+        }
+        case "favSong":
+          return <h2>{value[0]} fans</h2>;
 
-        let month = monthsArray[value[0] - 1];
-        return <h2>Birthdays of {month}</h2>;
-      } else {
-        return <h2>{value} characters</h2>;
+        default:
+          return <h2>{value} characters</h2>;
       }
     }
     return (

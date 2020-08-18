@@ -64,6 +64,9 @@ class VillagerData extends React.Component {
 
             <Link to={`/?sunSign=${villager.sunSign}`}>{villager.sunSign}</Link>
           </p>
+          <p>
+            <Link to={`/?favSong=${villager.favSong}`}>{villager.favSong}</Link>
+          </p>
         </div>
       </div>
     );
