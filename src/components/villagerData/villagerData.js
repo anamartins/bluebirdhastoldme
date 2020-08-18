@@ -7,6 +7,7 @@ import cake from "./img/birthday.png";
 import heart from "./img/heart.png";
 import smile from "./img/smile.png";
 import sun from "./img/sun.png";
+import music from "./img/music.png";
 import "./style.scss";
 
 class VillagerData extends React.Component {
@@ -65,6 +66,7 @@ class VillagerData extends React.Component {
             <Link to={`/?sunSign=${villager.sunSign}`}>{villager.sunSign}</Link>
           </p>
           <p>
+            <img src={music} />
             <Link to={`/?favSong=${villager.favSong}`}>{villager.favSong}</Link>
           </p>
         </div>

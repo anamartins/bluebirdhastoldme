@@ -103,6 +103,15 @@ class AboutView extends React.Component {
               </a>
             </li>
             <li>
+              Note by{" "}
+              <a
+                href="https://thenounproject.com/rose-alice-design/"
+                target="_blank"
+              >
+                Alice Design
+              </a>
+            </li>
+            <li>
               Message in a Bottle and Ocean by{" "}
               <a
                 href="https://thenounproject.com/andreluizgollo/"
