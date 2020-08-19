@@ -1,20 +1,5 @@
-html,
-body {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  a,
-  a:hover {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  .loading {
-    background-color: yellowgreen;
-    text-align: center;
-    margin: 4%;
-  }
+.loading {
+  background-color: yellowgreen;
+  text-align: center;
+  margin: 4%;
 }

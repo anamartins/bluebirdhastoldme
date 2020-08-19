@@ -4,8 +4,8 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import App from "./components/app/app";
-
 import reducer, { defaultState } from "./reducers/reducer";
+import "./style.scss";
 
 let initialState = defaultState;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
