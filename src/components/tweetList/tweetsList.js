@@ -13,7 +13,6 @@ class TweetsList extends React.Component {
   }
 
   showTweets() {
-    console.log("tweets length", this.props.tweets.length);
     if (this.props.tweets.length !== 0) {
       return this.props.tweets.map((tweet, index) => (
         <Tweet key={index} {...tweet} />
