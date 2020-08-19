@@ -9,6 +9,18 @@ import "./style.scss";
 class TweetsList extends React.Component {
   constructor(props) {
     super(props);
+    this.showTweets = this.showTweets.bind(this);
+  }
+
+  showTweets() {
+    console.log("tweets length", this.props.tweets.length);
+    if (this.props.tweets.length !== 0) {
+      return this.props.tweets.map((tweet, index) => (
+        <Tweet key={index} {...tweet} />
+      ));
+    } else {
+      return "ops! there's nothing to show here!";
+    }
   }
 
   render() {
@@ -16,11 +28,7 @@ class TweetsList extends React.Component {
 
     return (
       <div className="tweets">
-        {loading ? (
-          <div className="loading">LOADING</div>
-        ) : (
-          tweets.map((tweet, index) => <Tweet key={index} {...tweet} />)
-        )}
+        {loading ? <div className="loading">LOADING</div> : this.showTweets()}
         {showLoadMoreDiv && <LoadMoreTweets />}
       </div>
     );
