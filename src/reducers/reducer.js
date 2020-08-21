@@ -50,7 +50,7 @@ const reducer = (state = defaultState, action) => {
     case LOAD_VILLAGERS_ERROR:
       return {
         ...state,
-        message: "error",
+        message: "error on loading villagers",
       };
 
     case LOAD_FILTERED_VILLAGERS:
@@ -70,7 +70,7 @@ const reducer = (state = defaultState, action) => {
     case LOAD_FILTERED_VILLAGERS_ERROR:
       return {
         ...state,
-        message: "error",
+        message: "error! we cannot load these group of villagers",
       };
 
     case LOAD_VILLAGER_DETAILS:
@@ -95,7 +95,7 @@ const reducer = (state = defaultState, action) => {
     case LOAD_VILLAGER_DETAILS_ERROR:
       return {
         ...state,
-        message: "error",
+        message: "error. cannot load villager details. :(",
       };
 
     case LOAD_MORE_TWEETS:
@@ -122,7 +122,7 @@ const reducer = (state = defaultState, action) => {
     case LOAD_MORE_TWEETS_ERROR:
       return {
         ...state,
-        message: "error",
+        message: "bad bad server. cannot load more tweets for you.",
       };
 
     case LOAD_SEARCH_VILLAGERS:
@@ -148,7 +148,7 @@ const reducer = (state = defaultState, action) => {
     case LOAD_BIRTHDAY_VILLAGER_ERROR:
       return {
         ...state,
-        message: "error",
+        message: "bad bad server. cannot load the birthday villagers for you.",
       };
     default:
       return state;
