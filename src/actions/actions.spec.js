@@ -15,7 +15,7 @@ import {
   LOAD_BIRTHDAY_VILLAGER,
   LOAD_BIRTHDAY_VILLAGER_SUCCESS,
   LOAD_BIRTHDAY_VILLAGER_ERROR,
-} from "../actions/actions";
+} from "./actions";
 import axios from "axios";
 
 import {
@@ -25,7 +25,7 @@ import {
   loadBirthdayVillager,
   loadVillagers,
   loadSearchVillagers,
-} from "../actions/actions";
+} from "./actions";
 
 jest.mock("axios");
 let dispatch = null;
