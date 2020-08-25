@@ -25,7 +25,7 @@ export const LOAD_BIRTHDAY_VILLAGER_ERROR = "LOAD_BIRTHDAY_VILLAGER_ERROR";
 export const loadVillagerDetails = (name) => {
   return (dispatch) => {
     dispatch({ type: LOAD_VILLAGER_DETAILS });
-    axios
+    return axios
       .get(`${API_BASE_URL}tweets/${name}`)
       .then((res) => {
         const villager = res.data.villager;
@@ -47,7 +47,7 @@ export const loadVillagerDetails = (name) => {
 export const loadMoreTweets = (slug, url) => {
   return (dispatch) => {
     dispatch({ type: LOAD_MORE_TWEETS });
-    axios
+    return axios
       .get(`${API_BASE_URL}tweets/${slug}${url}`)
       .then((res) => {
         const tweets = res.data.tweets;
@@ -63,7 +63,7 @@ export const loadMoreTweets = (slug, url) => {
 export const loadFilteredVillagers = (filter, value) => {
   return (dispatch) => {
     dispatch({ type: LOAD_FILTERED_VILLAGERS });
-    axios
+    return axios
       .get(`${API_BASE_URL}villagers?${filter}=${value}`)
       .then((res) => {
         const filteredVillagers = res.data;
@@ -78,7 +78,7 @@ export const loadFilteredVillagers = (filter, value) => {
 export const loadBirthdayVillager = (day, month) => {
   return (dispatch) => {
     dispatch({ type: LOAD_BIRTHDAY_VILLAGER });
-    axios
+    return axios
       .get(`${API_BASE_URL}villagers?birthdayDay=${day}&birthdayMonth=${month}`)
       .then((res) => {
         const birthdayVillagers = res.data;
@@ -96,7 +96,7 @@ export const loadBirthdayVillager = (day, month) => {
 export const loadVillagers = () => {
   return (dispatch) => {
     dispatch({ type: LOAD_VILLAGERS });
-    axios
+    return axios
       .get(`${API_BASE_URL}villagers`)
       .then((res) => {
         const villagers = res.data;
