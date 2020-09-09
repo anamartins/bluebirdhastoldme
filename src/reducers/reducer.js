@@ -15,6 +15,9 @@ import {
   LOAD_MORE_TWEETS_SUCCESS,
   LOAD_MORE_TWEETS_ERROR,
   LOAD_SEARCH_VILLAGERS,
+  LOAD_MUSIC_NAME,
+  LOAD_MUSIC_NAME_SUCCESS,
+  LOAD_MUSIC_NAME_ERROR,
 } from "../actions/actions";
 
 export const defaultState = {
@@ -29,6 +32,7 @@ export const defaultState = {
   moreTweetsURL: null,
   emptySearch: false,
   birthday: [],
+  song: null,
 };
 
 const reducer = (state = defaultState, action) => {
@@ -149,6 +153,23 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         message: "bad bad server. cannot load the birthday villagers for you.",
+      };
+
+    case LOAD_MUSIC_NAME:
+      return {
+        ...state,
+        song: "",
+      };
+
+    case LOAD_MUSIC_NAME_SUCCESS:
+      return {
+        ...state,
+        song: action.songName,
+      };
+
+    case LOAD_MUSIC_NAME_ERROR:
+      return {
+        ...state,
       };
     default:
       return state;

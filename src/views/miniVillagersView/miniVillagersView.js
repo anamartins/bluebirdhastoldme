@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadVillagers, loadFilteredVillagers } from "../../actions/actions";
+import {
+  loadVillagers,
+  loadFilteredVillagers,
+  loadMusicName,
+} from "../../actions/actions";
 import MiniVillagersList from "../../components/miniVillagerList/miniVillagersList";
 import Header from "../../components/header/header";
 import Search from "../../components/search/search";
@@ -17,6 +21,9 @@ class MiniVillagersView extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.filter[0] === "favSong") {
+      this.props.loadMusicName(this.props.value[0]);
+    }
     if (this.props.filter[0] !== "") {
       this.props.loadFilteredVillagers(this.props.filter, this.props.value);
     } else {
@@ -51,7 +58,7 @@ class MiniVillagersView extends React.Component {
           return <h2>Birthdays of {month}</h2>;
         }
         case "favSong":
-          return <h2>{value[0]} fans</h2>;
+          return <h2>{this.props.song} fans</h2>;
 
         default:
           return <h2>{value} characters</h2>;
@@ -78,7 +85,7 @@ class MiniVillagersView extends React.Component {
 }
 
 const mapStateToProps = (
-  { villagers, filteredVillagers, loading },
+  { villagers, filteredVillagers, loading, song },
   ownProps
 ) => {
   let search = ownProps.location.search;
@@ -93,12 +100,13 @@ const mapStateToProps = (
   let filter = Object.keys(filters);
   let value = Object.values(filters);
 
-  return { filter, value, villagers, filteredVillagers, loading };
+  return { filter, value, villagers, filteredVillagers, loading, song };
 };
 const mapDispatchToProps = (dispatch) => ({
   loadVillagers: () => dispatch(loadVillagers()),
   loadFilteredVillagers: (filter, value) =>
     dispatch(loadFilteredVillagers(filter, value)),
+  loadMusicName: (slug) => dispatch(loadMusicName(slug)),
 });
 
 MiniVillagersList.propTypes = {
@@ -109,6 +117,7 @@ MiniVillagersList.propTypes = {
   villagers: PropTypes.array,
   filteredVillagers: PropTypes.array,
   loading: PropTypes.bool,
+  song: PropTypes.string,
 };
 
 export default withRouter(

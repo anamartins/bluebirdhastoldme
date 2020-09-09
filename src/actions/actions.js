@@ -21,6 +21,9 @@ export const LOAD_SEARCH_VILLAGERS = "LOAD_SEARCH_VILLAGERS";
 export const LOAD_BIRTHDAY_VILLAGER = "LOAD_BIRTHDAY_VILLAGER";
 export const LOAD_BIRTHDAY_VILLAGER_SUCCESS = "LOAD_BIRTHDAY_VILLAGER_SUCCESS";
 export const LOAD_BIRTHDAY_VILLAGER_ERROR = "LOAD_BIRTHDAY_VILLAGER_ERROR";
+export const LOAD_MUSIC_NAME = "LOAD_MUSIC_NAME";
+export const LOAD_MUSIC_NAME_SUCCESS = "LOAD_MUSIC_NAME_SUCCESS";
+export const LOAD_MUSIC_NAME_ERROR = "LOAD_MUSIC_NAME_ERROR";
 
 export const loadVillagerDetails = (name) => {
   return (dispatch) => {
@@ -111,5 +114,20 @@ export const loadVillagers = () => {
 export const loadSearchVillagers = (word) => {
   return (dispatch) => {
     dispatch({ type: LOAD_SEARCH_VILLAGERS, word });
+  };
+};
+
+export const loadMusicName = (slug) => {
+  return (dispatch) => {
+    dispatch({ type: LOAD_MUSIC_NAME });
+    return axios
+      .get(`${API_BASE_URL}music/${slug}`)
+      .then((res) => {
+        const songName = res.data.name;
+        dispatch({ type: LOAD_MUSIC_NAME_SUCCESS, songName });
+      })
+      .catch(() => {
+        dispatch({ type: LOAD_MUSIC_NAME_ERROR });
+      });
   };
 };
