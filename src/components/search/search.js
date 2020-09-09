@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import { loadSearchVillagers } from "../../actions/actions";
 import "./style.scss";
 
@@ -85,4 +84,4 @@ Search.propTypes = {
   loadSearchVillagers: PropTypes.func,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

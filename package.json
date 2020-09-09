@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "jest-transform-stub": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^10.4.9",
     "babel-jest": "^26.3.0",
     "jest": "^26.4.1",
     "parcel-bundler": "^1.12.4",
