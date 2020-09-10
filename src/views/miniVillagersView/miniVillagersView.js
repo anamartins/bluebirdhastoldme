@@ -25,7 +25,6 @@ class MiniVillagersView extends React.Component {
       this.props.loadMusicName(this.props.value[0]);
     }
     if (this.props.filter[0] !== "") {
-      console.log("filter, value", this.props.filter, this.props.value);
       this.props.loadFilteredVillagers(this.props.filter, this.props.value);
     } else {
       this.props.loadVillagers();
@@ -79,7 +78,6 @@ class MiniVillagersView extends React.Component {
       <div className="wrapper">
         <Header />
         {this.getH2(filter, value)}
-        {console.log("filter value", filter[0], value[0])}
         <MiniVillagersList title={value[0]} />
       </div>
     );

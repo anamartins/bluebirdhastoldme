@@ -65,7 +65,6 @@ export const loadMoreTweets = (slug, url) => {
 
 export const loadFilteredVillagers = (filter, value) => {
   return (dispatch) => {
-    console.log("url", `${API_BASE_URL}villagers?${filter}=${value}`);
     dispatch({ type: LOAD_FILTERED_VILLAGERS });
     return axios
       .get(`${API_BASE_URL}villagers?${filter}=${value}`)
@@ -119,7 +118,6 @@ export const loadSearchVillagers = (word) => {
 };
 
 export const loadMusicName = (slug) => {
-  console.log("slug", slug);
   return (dispatch) => {
     dispatch({ type: LOAD_MUSIC_NAME });
     return axios
