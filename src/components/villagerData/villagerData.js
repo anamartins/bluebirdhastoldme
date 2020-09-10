@@ -67,8 +67,8 @@ class VillagerData extends React.Component {
           </p>
           <p>
             <img src={music} />
-            <Link to={`/?favSong=${villager.favSongSlug}`}>
-              {villager.favSong}
+            <Link to={`/?favSong=${villager.favSong}`}>
+              {villager.favSongName}
             </Link>
           </p>
         </div>
